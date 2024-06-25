@@ -12,19 +12,28 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    examinerlogin.cpp \
     main.cpp \
     examsphere.cpp \
-    student.cpp
+    student.cpp \
+    welcome.cpp
 
 HEADERS += \
+    examinerlogin.h \
     examsphere.h \
-    student.h
+    student.h \
+    welcome.h
 
 FORMS += \
+    examinerlogin.ui \
     examsphere.ui \
-    student.ui
+    student.ui \
+    welcome.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    assests.qrc

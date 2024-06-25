@@ -55,28 +55,9 @@ void ExamSphere::on_pushButton_clicked()
             QString passworddb=query_login.value(1).toString();
             if(usernamedb==username && passworddb==password)
             {
-                usernameg=usernamedb;
-                QSqlQuery query_login1(QSqlDatabase::database("Examsphere"));
-                query_login1.prepare("SELECT username FROM info WHERE username=:username");
-                query_login1.bindValue(":username",usernamedb);
-                query_login1.exec();
-                query_login1.first();
-                check=query_login1.value(1).toString();
-                if(check=="1")
-                {
-                    hide();
-                    //secDialog=new SecDialog();
-                    //secDialog->showMaximized();
-                }
-                else
-                {
-                    hide();
+                hide();
                     studentWindow = new Student();
-                    studentWindow->show();
-                    //secDialog=new SecDialog();
-                    //secDialog->showMaximized();
-
-                }
+                    studentWindow->showMaximized();
 
             }
 

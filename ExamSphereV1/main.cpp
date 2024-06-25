@@ -1,5 +1,6 @@
 #include "examsphere.h"
-#include <iostream>
+
+#include "welcome.h"
 #include <QApplication>
 #include <QSqlDatabase>
 #include <QDebug>
@@ -13,7 +14,7 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    ExamSphere w;
-    w.show();
+    Welcome w;
+    w.showMaximized();
     return a.exec();
 }

@@ -17,5 +17,6 @@ Student::~Student()
 void Student::on_pushButton_clicked()
 {
 
+
 }
 
