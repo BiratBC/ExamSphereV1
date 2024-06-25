@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/rec">
         <file>assets/logo.png</file>
+        <file>assets/icons8-student-48.png</file>
+        <file>assets/icons8-student-96.png</file>
+        <file>assets/icons8-teacher-100.png</file>
     </qresource>
 </RCC>

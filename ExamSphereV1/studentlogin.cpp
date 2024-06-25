@@ -1,5 +1,6 @@
-#include "examsphere.h"
-#include "ui_examsphere.h"
+#include "studentlogin.h"
+#include "ui_studentlogin.h"
+
 #include <QMessageBox>
 #include <QDebug>
 #include <QtSql/QSqlDatabase>
@@ -16,7 +17,7 @@ ExamSphere::ExamSphere(QWidget *parent)
     ui->setupUi(this);
     ui->error->hide();
 
-    this->setWindowTitle("ExamSphere");
+    this->setWindowTitle("Student Login");
     QSqlDatabase dab = QSqlDatabase::addDatabase("QMYSQL");
     dab.setHostName("localhost");
     dab.setUserName("root");

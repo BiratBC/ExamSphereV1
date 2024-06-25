@@ -17,6 +17,7 @@ public:
 
 private:
     Ui::ExaminerLogin *ui;
+    ExaminerLogin *examinerWindow;
 };
 
 #endif // EXAMINERLOGIN_H

@@ -1,6 +1,6 @@
 #include "student.h"
 #include "ui_student.h"
-#include "examsphere.h"
+#include "studentlogin.h"
 
 Student::Student(QWidget *parent)
     : QDialog(parent)

@@ -14,20 +14,20 @@ CONFIG += c++17
 SOURCES += \
     examinerlogin.cpp \
     main.cpp \
-    examsphere.cpp \
     student.cpp \
+    studentlogin.cpp \
     welcome.cpp
 
 HEADERS += \
     examinerlogin.h \
-    examsphere.h \
     student.h \
+    studentlogin.h \
     welcome.h
 
 FORMS += \
     examinerlogin.ui \
-    examsphere.ui \
     student.ui \
+    studentlogin.ui \
     welcome.ui
 
 # Default rules for deployment.

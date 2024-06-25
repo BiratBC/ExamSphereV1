@@ -1,5 +1,5 @@
-#ifndef EXAMSPHERE_H
-#define EXAMSPHERE_H
+#ifndef STUDENTLOGIN_H
+#define STUDENTLOGIN_H
 
 #include <QMainWindow>
 #include "student.h"
@@ -32,4 +32,4 @@ private:
     Ui::ExamSphere *ui;
     Student *studentWindow;
 };
-#endif // EXAMSPHERE_H
+#endif // STUDENTLOGIN_H
