@@ -4,5 +4,13 @@
         <file>assets/icons8-student-48.png</file>
         <file>assets/icons8-student-96.png</file>
         <file>assets/icons8-teacher-100.png</file>
+        <file>assets/Ubuntu-Bold.ttf</file>
+        <file>assets/Ubuntu-BoldItalic.ttf</file>
+        <file>assets/Ubuntu-Italic.ttf</file>
+        <file>assets/Ubuntu-Light.ttf</file>
+        <file>assets/Ubuntu-LightItalic.ttf</file>
+        <file>assets/Ubuntu-Medium.ttf</file>
+        <file>assets/Ubuntu-MediumItalic.ttf</file>
+        <file>assets/Ubuntu-Regular.ttf</file>
     </qresource>
 </RCC>

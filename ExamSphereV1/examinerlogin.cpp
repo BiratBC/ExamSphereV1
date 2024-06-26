@@ -1,6 +1,7 @@
 #include "examinerlogin.h"
 #include "ui_examinerlogin.h"
 #include "studentlogin.h"
+#include <QPixmap>
 #include <QMessageBox>
 
 ExaminerLogin::ExaminerLogin(QWidget *parent)
@@ -8,6 +9,8 @@ ExaminerLogin::ExaminerLogin(QWidget *parent)
     , ui(new Ui::ExaminerLogin)
 {
     ui->setupUi(this);
+    QPixmap logo(":/rec/assets/logo.png");
+    ui->logo2->setPixmap(logo.scaled(200,200,Qt::KeepAspectRatio));
 
     this->setWindowTitle("Examiner Login");
     QSqlDatabase dab = QSqlDatabase::addDatabase("QMYSQL");

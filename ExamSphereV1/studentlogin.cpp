@@ -15,7 +15,9 @@ ExamSphere::ExamSphere(QWidget *parent)
     , ui(new Ui::ExamSphere)
 {
     ui->setupUi(this);
-    ui->error->hide();
+    //ui->error->hide();
+    QPixmap logo(":/rec/assets/logo.png");
+    ui->logo3->setPixmap(logo.scaled(200,200,Qt::KeepAspectRatio));
 
     this->setWindowTitle("Student Login");
     QSqlDatabase dab = QSqlDatabase::addDatabase("QMYSQL");
@@ -65,6 +67,7 @@ void ExamSphere::on_pushButton_clicked()
         }
         else
             QMessageBox::warning(this,"Login","Username and password do not match.");
+           // ui->statusbar->showMessage("Username and Password is not correct!!!");
     }
 }
 
