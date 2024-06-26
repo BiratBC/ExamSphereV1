@@ -16,7 +16,7 @@ public:
     ~Student();
 
 private slots:
-    void on_pushButton_clicked();
+
 
 private:
     Ui::Student *ui;

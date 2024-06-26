@@ -2,8 +2,6 @@
 #define WELCOME_H
 #include "studentlogin.h"
 #include "examinerlogin.h"
-
-
 #include <QDialog>
 
 namespace Ui {

@@ -8,7 +8,6 @@
 #include <QFileInfo>
 #include <QSqlDatabase>
 
-
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -28,8 +27,11 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_pushButton_2_clicked();
+
 private:
     Ui::ExamSphere *ui;
     Student *studentWindow;
+
 };
 #endif // STUDENTLOGIN_H

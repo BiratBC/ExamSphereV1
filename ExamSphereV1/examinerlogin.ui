@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>936</width>
-    <height>769</height>
+    <width>1017</width>
+    <height>671</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(231, 240, 220);</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
@@ -82,7 +85,7 @@
            </font>
           </property>
           <property name="text">
-           <string>Examiner Login Page</string>
+           <string>&lt;font color = #597445&gt;Examiner Login Page&lt;/font&gt;</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -96,8 +99,11 @@
         <property name="font">
          <font>
           <family>Ubuntu</family>
-          <pointsize>23</pointsize>
+          <pointsize>30</pointsize>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(231, 240, 220);</string>
         </property>
         <property name="title">
          <string>Login</string>
@@ -132,7 +138,7 @@
                 </font>
                </property>
                <property name="text">
-                <string>Id</string>
+                <string>&lt;font color = #658147&gt;Id&lt;/font&gt;</string>
                </property>
                <property name="buddy">
                 <cstring>lineID</cstring>
@@ -162,6 +168,10 @@
                  <family>Ubuntu Light</family>
                  <pointsize>18</pointsize>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
+border-color: rgb(89, 116, 69);</string>
                </property>
               </widget>
              </item>
@@ -194,7 +204,8 @@
                 </font>
                </property>
                <property name="text">
-                <string>Password</string>
+                <string>&lt;font color = #658147&gt;Password&lt;/font&gt;
+</string>
                </property>
                <property name="buddy">
                 <cstring>linePassword</cstring>
@@ -225,6 +236,10 @@
                  <pointsize>18</pointsize>
                 </font>
                </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
+border-color: rgb(89, 116, 69);</string>
+               </property>
               </widget>
              </item>
             </layout>
@@ -253,8 +268,31 @@
                <pointsize>23</pointsize>
               </font>
              </property>
+             <property name="styleSheet">
+              <string notr="true">border-color: rgb(89, 116, 69);
+color: rgb(89, 116, 69);
+background-color: rgb(255, 255, 255);</string>
+             </property>
              <property name="text">
               <string>Login</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_2">
+             <property name="font">
+              <font>
+               <family>Ubuntu</family>
+               <pointsize>23</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border-color: rgb(89, 116, 69);
+color: rgb(89, 116, 69);
+background-color: rgb(255, 255, 255);</string>
+             </property>
+             <property name="text">
+              <string>Go Back</string>
              </property>
             </widget>
            </item>

@@ -13,6 +13,7 @@ Welcome::Welcome(QWidget *parent)
 
     ui->setupUi(this);
     this->setWindowTitle("ExamSphere");
+    this->setWindowIcon(QIcon(":/rec/assets/logo.png"));
     //QFontDatabase::addApplicationFont(":/rec/assets/Ubuntu-Regular.ttf");
 
 
@@ -41,13 +42,13 @@ void Welcome::on_pushGo_clicked()
 
     if(x == 0)
     {
-    hide();
+    close();
     examWindow = new ExamSphere();
     examWindow->showMaximized();
     }
     else
     {
-    hide();
+    close();
     examinerWindow = new ExaminerLogin();
     examinerWindow->showMaximized();
     }

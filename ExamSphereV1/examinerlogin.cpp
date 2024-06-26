@@ -1,8 +1,11 @@
 #include "examinerlogin.h"
 #include "ui_examinerlogin.h"
-#include "studentlogin.h"
 #include <QPixmap>
 #include <QMessageBox>
+#include <QDebug>
+#include <QtSql>
+#include <QSqlDatabase>
+
 
 ExaminerLogin::ExaminerLogin(QWidget *parent)
     : QDialog(parent)

@@ -6,17 +6,25 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1151</width>
-    <height>929</height>
+    <width>1292</width>
+    <height>687</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>ExamSphere</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(248, 244, 225);
+
+</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="1">
      <widget class="QGroupBox" name="groupBox">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(248, 244, 225);</string>
+      </property>
       <property name="title">
        <string/>
       </property>
@@ -45,7 +53,7 @@
             </font>
            </property>
            <property name="text">
-            <string>Student Login Page</string>
+            <string>&lt;font color = #E65C19&gt;Student Login Page</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -77,6 +85,9 @@
            <family>Ubuntu</family>
            <pointsize>30</pointsize>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:#E65C19;</string>
          </property>
          <property name="title">
           <string>Login</string>
@@ -157,6 +168,13 @@
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout">
                 <item>
+                 <widget class="QLabel" name="idimg">
+                  <property name="text">
+                   <string>TextLabel</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
                  <widget class="QLabel" name="id">
                   <property name="font">
                    <font>
@@ -165,7 +183,7 @@
                    </font>
                   </property>
                   <property name="text">
-                   <string>ID</string>
+                   <string>&lt;font color = #E65C19&gt;ID</string>
                   </property>
                  </widget>
                 </item>
@@ -193,6 +211,12 @@
                     <pointsize>18</pointsize>
                    </font>
                   </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(255, 255, 255);
+border: 1px solid;
+border-color: rgb(255, 111, 42);
+border-radius:5px;</string>
+                  </property>
                  </widget>
                 </item>
                </layout>
@@ -216,6 +240,13 @@
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_2">
                 <item>
+                 <widget class="QLabel" name="psdimg">
+                  <property name="text">
+                   <string>TextLabel</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
                  <widget class="QLabel" name="password">
                   <property name="font">
                    <font>
@@ -224,7 +255,7 @@
                    </font>
                   </property>
                   <property name="text">
-                   <string>Password</string>
+                   <string>&lt;font color = #E65C19&gt;Password</string>
                   </property>
                  </widget>
                 </item>
@@ -251,6 +282,12 @@
                     <family>Ubuntu Light</family>
                     <pointsize>18</pointsize>
                    </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(255, 255, 255);
+border: 1px solid;
+border-color: rgb(255, 111, 42);
+border-radius:5px;</string>
                   </property>
                   <property name="echoMode">
                    <enum>QLineEdit::Password</enum>
@@ -285,6 +322,16 @@
                 <pointsize>20</pointsize>
                </font>
               </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(230, 92, 25);
+color: rgb(255, 255, 255);
+border-radius: 12px; 
+border: 1px solid;
+border-color: rgb(255, 111, 42);</string>
+              </property>
               <property name="text">
                <string>Login</string>
               </property>
@@ -313,6 +360,16 @@
                 <family>Ubuntu</family>
                 <pointsize>20</pointsize>
                </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+background-color: rgb(255, 255, 255);
+border-radius: 12px; 
+border: 1px solid;
+border-color: rgb(255, 111, 42);</string>
               </property>
               <property name="text">
                <string>Go back</string>
@@ -366,7 +423,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1151</width>
+     <width>1292</width>
      <height>26</height>
     </rect>
    </property>
