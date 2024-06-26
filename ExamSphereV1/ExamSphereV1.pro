@@ -12,6 +12,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    addstudents.cpp \
     examinerlogin.cpp \
     main.cpp \
     student.cpp \
@@ -19,12 +20,14 @@ SOURCES += \
     welcome.cpp
 
 HEADERS += \
+    addstudents.h \
     examinerlogin.h \
     student.h \
     studentlogin.h \
     welcome.h
 
 FORMS += \
+    addstudents.ui \
     examinerlogin.ui \
     student.ui \
     studentlogin.ui \

@@ -2,6 +2,8 @@
 #define EXAMINERLOGIN_H
 
 #include <QDialog>
+#include "addstudents.h"
+#include <QSqlDatabase>
 
 namespace Ui {
 class ExaminerLogin;
@@ -15,9 +17,14 @@ public:
     explicit ExaminerLogin(QWidget *parent = nullptr);
     ~ExaminerLogin();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::ExaminerLogin *ui;
-    ExaminerLogin *examinerWindow;
+    QSqlDatabase dab;
+   // ExaminerLogin *examinerWindow;
+    addStudents *addWindow;
 };
 
 #endif // EXAMINERLOGIN_H

@@ -49,7 +49,7 @@ void ExamSphere::on_pushButton_clicked()
 {   QMessageBox message;
     message.setWindowTitle("Error");
     message.resize(800,800);
-    message.setText("Username and Password is not correct!!!");
+    message.setText("Id and Password is not correct!!!");
     message.setStyleSheet(
         "QMessageBox {"
         "    background-color: #f0f0f0;"
