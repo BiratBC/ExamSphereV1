@@ -25,8 +25,6 @@ Welcome::Welcome(QWidget *parent)
     //QFont Ubuntu("Ubuntu", 20, QFont::Normal);
     //ui->label->setFont(Ubuntu);
 
-
-
 }
 
 

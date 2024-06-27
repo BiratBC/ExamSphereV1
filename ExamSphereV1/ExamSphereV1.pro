@@ -13,25 +13,34 @@ CONFIG += c++17
 
 SOURCES += \
     addstudents.cpp \
+    class10.cpp \
     class8.cpp \
+    class9.cpp \
     examinerlogin.cpp \
     main.cpp \
+    score.cpp \
     student.cpp \
     studentlogin.cpp \
     welcome.cpp
 
 HEADERS += \
     addstudents.h \
+    class10.h \
     class8.h \
+    class9.h \
     examinerlogin.h \
+    score.h \
     student.h \
     studentlogin.h \
     welcome.h
 
 FORMS += \
     addstudents.ui \
+    class10.ui \
     class8.ui \
+    class9.ui \
     examinerlogin.ui \
+    score.ui \
     student.ui \
     studentlogin.ui \
     welcome.ui
