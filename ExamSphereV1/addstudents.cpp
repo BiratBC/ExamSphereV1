@@ -6,6 +6,7 @@ addStudents::addStudents(QWidget *parent)
     , ui(new Ui::addStudents)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Add Students");
 }
 
 addStudents::~addStudents()

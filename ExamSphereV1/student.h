@@ -2,6 +2,7 @@
 #define STUDENT_H
 
 #include <QDialog>
+#include <class8.h>
 
 namespace Ui {
 class Student;
@@ -18,8 +19,11 @@ public:
 private slots:
 
 
+    void on_pushButton_clicked();
+
 private:
     Ui::Student *ui;
+    class8 *class8Window;
 };
 
 #endif // STUDENT_H
