@@ -2,6 +2,10 @@
 #define CLASS9_H
 
 #include <QDialog>
+#include <QRadioButton>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QLabel>
 
 namespace Ui {
 class class9;

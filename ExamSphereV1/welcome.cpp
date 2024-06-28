@@ -43,6 +43,8 @@ void Welcome::on_pushGo_clicked()
     close();
     examWindow = new ExamSphere();
     examWindow->showMaximized();
+    studentWindow = new Student();
+    //studentWindow->showMaximized();
     }
     else
     {

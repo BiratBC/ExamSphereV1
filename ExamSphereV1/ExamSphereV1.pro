@@ -20,7 +20,10 @@ SOURCES += \
     main.cpp \
     score.cpp \
     student.cpp \
-    studentlogin.cpp \
+    student10login.cpp \
+    student8login.cpp \
+    student9login.cpp \
+    studentregistration.cpp \
     welcome.cpp
 
 HEADERS += \
@@ -31,7 +34,10 @@ HEADERS += \
     examinerlogin.h \
     score.h \
     student.h \
-    studentlogin.h \
+    student10login.h \
+    student8login.h \
+    student9login.h \
+    studentregistration.h \
     welcome.h
 
 FORMS += \
@@ -42,7 +48,10 @@ FORMS += \
     examinerlogin.ui \
     score.ui \
     student.ui \
-    studentlogin.ui \
+    student10login.ui \
+    student8login.ui \
+    student9login.ui \
+    studentregistration.ui \
     welcome.ui
 
 # Default rules for deployment.

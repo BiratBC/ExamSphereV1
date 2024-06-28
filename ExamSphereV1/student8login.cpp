@@ -1,5 +1,5 @@
-#include "studentlogin.h"
-#include "ui_studentlogin.h"
+#include "student8login.h"
+#include "ui_student8login.h"
 #include "welcome.h"
 #include <QMessageBox>
 #include <QDebug>
@@ -59,7 +59,7 @@ void ExamSphere::on_pushButton_clicked()
     QString username=ui->idLine->text();
     QString password=ui->passwordLine->text();
     QSqlQuery query_login(QSqlDatabase::database("Examsphere"));
-    query_login.prepare(QString("SELECT * FROM info WHERE username=:username AND password=:password"));
+    query_login.prepare(QString("SELECT * FROM info8 WHERE username=:username AND password=:password"));
     query_login.bindValue(":username",username);
     query_login.bindValue(":password",password);
     if(!query_login.exec())
@@ -75,8 +75,8 @@ void ExamSphere::on_pushButton_clicked()
             if(usernamedb==username && passworddb==password)
             {
                 close();
-                    studentWindow = new Student();
-                    studentWindow->showMaximized();
+                    class8Window = new class8();
+                    class8Window->showMaximized();
 
             }
 
@@ -96,5 +96,13 @@ void ExamSphere::on_pushButton_2_clicked()
     close();
     welcomeWindow = new Welcome();
     welcomeWindow->showMaximized();
+}
+
+
+void ExamSphere::on_pushButton_3_clicked()
+{
+    close();
+    registrationWindow = new studentRegistration();
+    registrationWindow->showMaximized();
 }
 

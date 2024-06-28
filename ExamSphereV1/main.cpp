@@ -1,4 +1,4 @@
-#include "studentlogin.h"
+#include "student8login.h"
 
 #include "welcome.h"
 #include <QApplication>

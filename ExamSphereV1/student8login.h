@@ -1,14 +1,18 @@
-#ifndef STUDENTLOGIN_H
-#define STUDENTLOGIN_H
+#ifndef STUDENT8LOGIN_H
+#define STUDENT8LOGIN_H
 
 #include <QMainWindow>
-#include "student.h"
 #include <QDebug>
 #include <QtSql>
 #include <QFileInfo>
 #include <QSqlDatabase>
 
 #include <QMainWindow>
+#include "class8.h"
+#include "studentregistration.h"
+
+
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -29,9 +33,12 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_pushButton_3_clicked();
+
 private:
     Ui::ExamSphere *ui;
-    Student *studentWindow;
+    class8 *class8Window;
+    studentRegistration *registrationWindow;
 
 };
-#endif // STUDENTLOGIN_H
+#endif // STUDENT8LOGIN_H

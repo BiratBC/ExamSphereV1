@@ -2,6 +2,10 @@
 #define CLASS10_H
 
 #include <QDialog>
+#include <QRadioButton>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QLabel>
 
 namespace Ui {
 class class10;

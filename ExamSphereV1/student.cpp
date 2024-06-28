@@ -1,7 +1,9 @@
 #include "student.h"
 #include "ui_student.h"
 #include <QPixmap>
+#include "welcome.h"
 
+//Welcome *welcomeWindow;
 Student::Student(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Student)
@@ -27,17 +29,23 @@ void Student::on_pushButton_clicked()
     if(x == 0)
     {
         close();
-        class8Window = new class8();
-        class8Window->showMaximized();
+        //class8Window = new class8();
+        //class8Window->showMaximized();
+        login8Window = new ExamSphere();
+        login8Window->showMaximized();
     }
     else if(x == 1)
     {
         close();
-        //examinerWindow = new ExaminerLogin();
-        //examinerWindow->showMaximized();
+        class9Window = new student9login();
+        class9Window->showMaximized();
+
     }
     else
     {
+        close();
+        class10Window = new student10login();
+        class10Window->showMaximized();
 
     }
 }
