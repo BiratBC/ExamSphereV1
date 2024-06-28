@@ -1,6 +1,6 @@
 #ifndef WELCOME_H
 #define WELCOME_H
-#include "student8login.h"
+#include "studentlogin.h"
 #include "examinerlogin.h"
 #include <QDialog>
 #include <student.h>

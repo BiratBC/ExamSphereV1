@@ -325,6 +325,22 @@ border-color: rgb(255, 111, 42);</string>
              </widget>
             </item>
             <item>
+             <spacer name="verticalSpacer_7">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Preferred</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
              <widget class="QLabel" name="label_2">
               <property name="font">
                <font>
@@ -340,12 +356,37 @@ border-color: rgb(255, 111, 42);</string>
              </widget>
             </item>
             <item>
+             <spacer name="verticalSpacer_8">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Preferred</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
              <widget class="QPushButton" name="pushButton_3">
               <property name="font">
                <font>
                 <family>Ubuntu</family>
                 <pointsize>20</pointsize>
                </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 12px; 
+border: 1px solid;
+border-color: rgb(255, 111, 42);</string>
               </property>
               <property name="text">
                <string>Register Now</string>

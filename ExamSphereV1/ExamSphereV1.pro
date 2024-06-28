@@ -20,9 +20,7 @@ SOURCES += \
     main.cpp \
     score.cpp \
     student.cpp \
-    student10login.cpp \
-    student8login.cpp \
-    student9login.cpp \
+    studentlogin.cpp \
     studentregistration.cpp \
     welcome.cpp
 
@@ -34,9 +32,7 @@ HEADERS += \
     examinerlogin.h \
     score.h \
     student.h \
-    student10login.h \
-    student8login.h \
-    student9login.h \
+    studentlogin.h \
     studentregistration.h \
     welcome.h
 
@@ -48,9 +44,7 @@ FORMS += \
     examinerlogin.ui \
     score.ui \
     student.ui \
-    student10login.ui \
-    student8login.ui \
-    student9login.ui \
+    studentlogin.ui \
     studentregistration.ui \
     welcome.ui
 

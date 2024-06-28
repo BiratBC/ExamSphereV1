@@ -1,5 +1,5 @@
-#ifndef STUDENT8LOGIN_H
-#define STUDENT8LOGIN_H
+#ifndef STUDENTLOGIN_H
+#define STUDENTLOGIN_H
 
 #include <QMainWindow>
 #include <QDebug>
@@ -10,6 +10,7 @@
 #include <QMainWindow>
 #include "class8.h"
 #include "studentregistration.h"
+#include "student.h"
 
 
 
@@ -37,8 +38,9 @@ private slots:
 
 private:
     Ui::ExamSphere *ui;
-    class8 *class8Window;
+    //class8 *class8Window;
     studentRegistration *registrationWindow;
+    Student *studentDashboard;
 
 };
-#endif // STUDENT8LOGIN_H
+#endif // STUDENTLOGIN_H

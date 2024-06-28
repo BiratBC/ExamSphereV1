@@ -4,6 +4,7 @@
 #include "welcome.h"
 
 //Welcome *welcomeWindow;
+
 Student::Student(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Student)
@@ -11,9 +12,9 @@ Student::Student(QWidget *parent)
     ui->setupUi(this);
     QPixmap logo(":/rec/assets/logo.png");
     ui->logo4->setPixmap(logo.scaled(200,200,Qt::KeepAspectRatio));
-    ui->grade->addItem("8");
-    ui->grade->addItem("9");
-    ui->grade->addItem("10");
+    ui->subject->addItem("Maths");
+    ui->subject->addItem("Computer");
+    ui->subject->addItem("Science");
 }
 
 Student::~Student()
@@ -24,28 +25,28 @@ Student::~Student()
 
 void Student::on_pushButton_clicked()
 {
-    int x =  ui->grade->currentIndex();
+    int x =  ui->subject->currentIndex();
 
     if(x == 0)
     {
         close();
-        //class8Window = new class8();
-        //class8Window->showMaximized();
-        login8Window = new ExamSphere();
-        login8Window->showMaximized();
+        class8Window = new class8();
+        class8Window->showMaximized();
+       // login8Window = new ExamSphere();
+        //login8Window->showMaximized();
     }
     else if(x == 1)
     {
         close();
-        class9Window = new student9login();
-        class9Window->showMaximized();
+       // class9Window = new student9login();
+       // class9Window->showMaximized();
 
     }
     else
     {
         close();
-        class10Window = new student10login();
-        class10Window->showMaximized();
+        //class10Window = new student10login();
+        //class10Window->showMaximized();
 
     }
 }

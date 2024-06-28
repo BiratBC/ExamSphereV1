@@ -2,9 +2,8 @@
 #define STUDENT_H
 
 #include <QDialog>
-#include "student8login.h"
-#include "student9login.h"
-#include "student10login.h"
+#include "class8.h"
+
 
 namespace Ui {
 class Student;
@@ -25,9 +24,10 @@ private slots:
 
 private:
     Ui::Student *ui;
-   ExamSphere *login8Window;
-    student9login *class9Window;
-   student10login *class10Window;
+    class8 *class8Window;
+   //ExamSphere *login8Window;
+    //student9login *class9Window;
+   //student10login *class10Window;
 };
 
 #endif // STUDENT_H

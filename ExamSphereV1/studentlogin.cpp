@@ -1,5 +1,5 @@
-#include "student8login.h"
-#include "ui_student8login.h"
+#include "studentlogin.h"
+#include "ui_studentlogin.h"
 #include "welcome.h"
 #include <QMessageBox>
 #include <QDebug>
@@ -56,11 +56,11 @@ void ExamSphere::on_pushButton_clicked()
         "    color: #333333;"
         "}"
         );
-    QString username=ui->idLine->text();
+    QString id=ui->idLine->text();
     QString password=ui->passwordLine->text();
     QSqlQuery query_login(QSqlDatabase::database("Examsphere"));
-    query_login.prepare(QString("SELECT * FROM info8 WHERE username=:username AND password=:password"));
-    query_login.bindValue(":username",username);
+    query_login.prepare(QString("SELECT id, password FROM info WHERE id=:id AND password=:password"));
+    query_login.bindValue(":id",id);
     query_login.bindValue(":password",password);
     if(!query_login.exec())
     {
@@ -70,14 +70,13 @@ void ExamSphere::on_pushButton_clicked()
     {
         if(query_login.next())
         {
-            QString usernamedb=query_login.value(0).toString();
+            QString iddb=query_login.value(0).toString();
             QString passworddb=query_login.value(1).toString();
-            if(usernamedb==username && passworddb==password)
+            if(iddb==id && passworddb==password)
             {
                 close();
-                    class8Window = new class8();
-                    class8Window->showMaximized();
-
+                studentDashboard = new Student();
+                studentDashboard->showMaximized();
             }
 
         }
