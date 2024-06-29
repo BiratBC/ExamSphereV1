@@ -73,7 +73,7 @@ teacherRegistration::teacherRegistration(QWidget *parent)
     dab2.setPort(3377);
     if (!dab2.open())
     {
-        QMessageBox::critical(this, "Database Error", "Failed to connect to database: " + dab.lastError().text());
+        QMessageBox::critical(this, "Database Error", "Failed to connect to database: " + dab2.lastError().text());
     }
 }
 
@@ -125,9 +125,7 @@ void teacherRegistration::on_register_2_clicked()
         else if (fN == "\0" || lN == "\0" || id == "\0" || email == "\0" || pNum2 == "\0")
         {
             QMessageBox::warning(this, "Error", "Fields marked * are mandatory.");
-        }else if(chk1 == "\0" && chk2 == "\0" && chk3 == "\0")
-        {
-            QMessageBox::warning(this,"Error","Choose the grade that you teach");
+
         }
         else if (!dob.isValid())
         {
@@ -151,6 +149,8 @@ void teacherRegistration::on_register_2_clicked()
         }
         else
         {
+            if(ui->checkBox_8->isChecked() || ui->checkBox_9->isChecked() || ui->checkBox_10->isChecked())
+            {
             QSqlQuery qry(dab2);
             qry.prepare("INSERT INTO teacher_data(teacher_id, password, first_name, middle_name, last_name, email, date_of_birth, phone_number, subject_code, sex)"
                         "VALUES(:teacher_id, :password, :first_name, :middle_name, :last_name, :email, :date_of_birth, :phone_number, :subject_code, :sex)");
@@ -159,28 +159,51 @@ void teacherRegistration::on_register_2_clicked()
             qry.bindValue(":first_name", fN);
             qry.bindValue(":middle_name", mN);
             qry.bindValue(":last_name", lN);
-            qry.bindValue(":user_email", email);
+            qry.bindValue(":email", email);
             qry.bindValue(":date_of_birth", dob);
             qry.bindValue(":phone_number", pNum1);
             qry.bindValue(":subject_code",sub);
             qry.bindValue(":sex", sex);
 
-            qry.prepare("INSERT INTO teacher_id, class_code"
-                        "VALUES(:teacher_id, :class_code)");
+            QSqlQuery qry2(dab2);
+
+                qry2.prepare("INSERT INTO teacher_grade (teacher_id, class_code)"
+                             "VALUES(:teacher_id, :class_code)");
+                qry2.bindValue(":teacher_id", id);
+                qry2.bindValue(":class_code", chk1);
+
+            QSqlQuery qry3(dab2);
+                qry3.prepare("INSERT INTO teacher_grade (teacher_id, class_code)"
+                             "VALUES(:teacher_id, :class_code)");
+                qry3.bindValue(":teacher_id", id);
+                qry3.bindValue(":class_code", chk2);
+
+            QSqlQuery qry4(dab2);
+                qry4.prepare("INSERT INTO teacher_grade (teacher_id, class_code)"
+                             "VALUES(:teacher_id, :class_code)");
+                qry4.bindValue(":teacher_id", id);
+                qry4.bindValue(":class_code", chk3);
 
 
-            if (qry.exec())
-            {
+            if (qry.exec() && qry2.exec() && qry3.exec() && qry4.exec())
+                 {
                 QMessageBox::information(this, "Sign Up", "Signed up successfully.");
                 close();
                 examinerlogin = new ExaminerLogin();
                 examinerlogin->showMaximized();
-            }
-            else
-            {
+                }
+                else
+                 {
                 QMessageBox::warning(this, "Sign Up", "Sign up failed.");
                 qDebug() << qry.lastError().text() << Qt::endl;
+                 }
             }
+             else
+             {
+                QMessageBox::warning(this,"Error","Please choose all the grades you teach");
+
+               }
+
         }
     }
     else
@@ -188,7 +211,6 @@ void teacherRegistration::on_register_2_clicked()
         QMessageBox::warning(this, "Error", "Database connection is not open.");
     }
     dab2.close();
-
 }
 
 

@@ -6,6 +6,9 @@
 #include <QtSql>
 #include <QSqlDatabase>
 #include "addstudents.h"
+#include "welcome.h"
+
+Welcome *welcomeWindow2;
 
 
 ExaminerLogin::ExaminerLogin(QWidget *parent)
@@ -46,11 +49,11 @@ void ExaminerLogin::on_pushButton_clicked()
         "    color: #333333;"
         "}"
         );
-    QString username=ui->lineID->text();
+    QString id=ui->lineID->text();
     QString password=ui->linePassword->text();
     QSqlQuery query_login(QSqlDatabase::database("Examsphere"));
-    query_login.prepare(QString("SELECT * FROM info2 WHERE username=:username AND password=:password"));
-    query_login.bindValue(":username",username);
+    query_login.prepare(QString("SELECT teacher_id, password FROM teacher_data WHERE teacher_id=:teacher_id AND password=:password"));
+    query_login.bindValue(":teacher_id",id);
     query_login.bindValue(":password",password);
     if(!query_login.exec())
     {
@@ -60,9 +63,9 @@ void ExaminerLogin::on_pushButton_clicked()
     {
         if(query_login.next())
         {
-            QString usernamed=query_login.value(0).toString();
+            QString idd=query_login.value(0).toString();
             QString passwordd=query_login.value(1).toString();
-            if(usernamed==username && passwordd==password)
+            if(idd==id && passwordd==password)
             {
                 close();
                 addWindow = new addStudents();
@@ -86,5 +89,12 @@ void ExaminerLogin::on_register_2_clicked()
     close();
     signup = new teacherRegistration();
     signup->showMaximized();
+}
+
+
+void ExaminerLogin::on_pushButton_2_clicked()
+{
+    welcomeWindow2 = new Welcome();
+    welcomeWindow2->showMaximized();
 }
 
