@@ -98,17 +98,19 @@ void studentRegistration::on_pushButton_2_clicked()
         QString email = ui->lineEdit_email->text();
         long long pNum1 = ui->lineEdit_phn->text().toLongLong();
         QString pNum2 = ui->lineEdit_phn->text();
+        QString batch = ui->lineEdit_batch->text();
+        QString grade = ui->lineEdit_class->text();
         QString sex = ui->comboBox->currentText();
         QDate dob = ui->dateEdit_dob->date();
         QString password = ui->lineEdit_psd->text();
         QString cpassword = ui->lineEdit_Cpsd->text();
 
         QSqlQuery chku(dab), chke(dab), chkp(dab);
-        chku.prepare("SELECT * FROM userbase WHERE username=:username");
-        chku.bindValue(":username", id);
-        chke.prepare("SELECT * FROM userbase WHERE user_email=:user_email");
+        chku.prepare("SELECT * FROM student_Data WHERE id=:id");
+        chku.bindValue(":id", id);
+        chke.prepare("SELECT * FROM student_Data WHERE user_email=:user_email");
         chke.bindValue(":user_email", email);
-        chkp.prepare("SELECT * FROM userbase WHERE phone_number=:phone_number");
+        chkp.prepare("SELECT * FROM student_Data WHERE phone_number=:phone_number");
         chkp.bindValue(":phone_number", pNum1);
 
         chku.exec();
@@ -123,7 +125,7 @@ void studentRegistration::on_pushButton_2_clicked()
         {
             QMessageBox::warning(this, "Error", "Phone number is not correct. Please try again.");
         }
-        else if (fN == "\0" || lN == "\0" || id == "\0" || email == "\0" || pNum2 == "\0")
+        else if (fN == "\0" || lN == "\0" || id == "\0" || email == "\0" || pNum2 == "\0" || batch == "\0" || grade == "\0")
         {
             QMessageBox::warning(this, "Error", "Fields marked * are mandatory.");
         }
@@ -133,7 +135,7 @@ void studentRegistration::on_pushButton_2_clicked()
         }
         else if (chku.next())
         {
-            QMessageBox::warning(this, "Error", "Username already taken.");
+            QMessageBox::warning(this, "Error", "Invalid ID or already registered");
         }
         else if (chke.next())
         {
@@ -150,8 +152,8 @@ void studentRegistration::on_pushButton_2_clicked()
         else
         {
             QSqlQuery qry(dab);
-            qry.prepare("INSERT INTO info(id, password, first_name, middle_name, last_name, user_email, date_of_birth, phone_number, sex)"
-                        "VALUES(:id, :password, :first_name, :middle_name, :last_name, :user_email, :date_of_birth, :phone_number, :sex)");
+            qry.prepare("INSERT INTO student_data(id, password, first_name, middle_name, last_name, user_email, date_of_birth, phone_number, batch, grade, sex)"
+                        "VALUES(:id, :password, :first_name, :middle_name, :last_name, :user_email, :date_of_birth, :phone_number, :batch, :grade, :sex)");
             qry.bindValue(":id", id);
             qry.bindValue(":password", password);
             qry.bindValue(":first_name", fN);
@@ -160,6 +162,8 @@ void studentRegistration::on_pushButton_2_clicked()
             qry.bindValue(":user_email", email);
             qry.bindValue(":date_of_birth", dob);
             qry.bindValue(":phone_number", pNum1);
+            qry.bindValue(":batch",batch);
+            qry.bindValue(":grade",grade);
             qry.bindValue(":sex", sex);
 
             if (qry.exec())

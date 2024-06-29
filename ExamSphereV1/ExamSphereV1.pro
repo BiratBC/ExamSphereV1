@@ -22,6 +22,7 @@ SOURCES += \
     student.cpp \
     studentlogin.cpp \
     studentregistration.cpp \
+    teacherregistration.cpp \
     welcome.cpp
 
 HEADERS += \
@@ -34,6 +35,7 @@ HEADERS += \
     student.h \
     studentlogin.h \
     studentregistration.h \
+    teacherregistration.h \
     welcome.h
 
 FORMS += \
@@ -46,6 +48,7 @@ FORMS += \
     student.ui \
     studentlogin.ui \
     studentregistration.ui \
+    teacherregistration.ui \
     welcome.ui
 
 # Default rules for deployment.

@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "addstudents.h"
 #include <QSqlDatabase>
+#include "teacherregistration.h"
 
 namespace Ui {
 class ExaminerLogin;
@@ -27,6 +28,7 @@ private:
     QSqlDatabase dab;
    // ExaminerLogin *examinerWindow;
     addStudents *addWindow;
+    teacherRegistration *signup;
 };
 
 #endif // EXAMINERLOGIN_H

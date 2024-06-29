@@ -59,7 +59,7 @@ void ExamSphere::on_pushButton_clicked()
     QString id=ui->idLine->text();
     QString password=ui->passwordLine->text();
     QSqlQuery query_login(QSqlDatabase::database("Examsphere"));
-    query_login.prepare(QString("SELECT id, password FROM info WHERE id=:id AND password=:password"));
+    query_login.prepare(QString("SELECT id, password FROM student_Data WHERE id=:id AND password=:password"));
     query_login.bindValue(":id",id);
     query_login.bindValue(":password",password);
     if(!query_login.exec())

@@ -83,6 +83,8 @@ void ExaminerLogin::on_pushButton_clicked()
 
 void ExaminerLogin::on_register_2_clicked()
 {
-
+    close();
+    signup = new teacherRegistration();
+    signup->showMaximized();
 }
 
