@@ -432,16 +432,6 @@
              <item>
               <layout class="QVBoxLayout" name="verticalLayout">
                <item>
-                <widget class="QComboBox" name="subject">
-                 <property name="font">
-                  <font>
-                   <family>Ubuntu Light</family>
-                   <pointsize>20</pointsize>
-                  </font>
-                 </property>
-                </widget>
-               </item>
-               <item>
                 <spacer name="verticalSpacer_11">
                  <property name="orientation">
                   <enum>Qt::Vertical</enum>

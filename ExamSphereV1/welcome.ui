@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1142</width>
+    <width>1571</width>
     <height>767</height>
    </rect>
   </property>
@@ -26,7 +26,7 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">
+   <string notr="true">background-color: rgb(0, 0, 174);
 border-color: rgb(235, 224, 255);</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -34,8 +34,14 @@ border-color: rgb(235, 224, 255);</string>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QGroupBox" name="groupBox_2">
+       <property name="font">
+        <font>
+         <family>Ac437 EuroPC Mono</family>
+        </font>
+       </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(180, 255, 210);</string>
+        <string notr="true">background-color: rgb(0, 0, 174);
+color: rgb(255, 255, 255);</string>
        </property>
        <property name="title">
         <string/>
@@ -68,8 +74,9 @@ border-color: rgb(235, 224, 255);</string>
               </property>
               <property name="font">
                <font>
-                <family>Ubuntu</family>
+                <family>Ac437 IBM EGA 8x8</family>
                 <pointsize>50</pointsize>
+                <bold>false</bold>
                </font>
               </property>
               <property name="text">
@@ -84,11 +91,16 @@ border-color: rgb(235, 224, 255);</string>
           </item>
           <item>
            <widget class="QLabel" name="label_2">
+            <property name="font">
+             <font>
+              <family>Ac437 IBM EGA 8x8</family>
+             </font>
+            </property>
             <property name="text">
              <string>&quot;Master Every Question with Confidence!&quot;</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignHCenter|Qt::AlignTop</set>
+             <set>Qt::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -133,9 +145,12 @@ border-color: rgb(235, 224, 255);</string>
       <widget class="QGroupBox" name="groupBox">
        <property name="font">
         <font>
-         <family>Ubuntu Light</family>
+         <family>Ac437 IBM EGA 8x8</family>
          <pointsize>28</pointsize>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);</string>
        </property>
        <property name="title">
         <string>Login As</string>
@@ -147,7 +162,7 @@ border-color: rgb(235, 224, 255);</string>
            <enum>Qt::Horizontal</enum>
           </property>
           <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
+           <enum>QSizePolicy::Preferred</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -163,12 +178,18 @@ border-color: rgb(235, 224, 255);</string>
            <widget class="QComboBox" name="comboBox">
             <property name="font">
              <font>
-              <family>Ubuntu Light</family>
-              <pointsize>21</pointsize>
+              <family>Ac437 IBM EGA 8x8</family>
+              <pointsize>16</pointsize>
              </font>
             </property>
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">height: 60px;
+color: rgb(0, 0, 174);
+background-color: rgb(255, 255, 255);
+width:70px;</string>
             </property>
            </widget>
           </item>
@@ -176,12 +197,18 @@ border-color: rgb(235, 224, 255);</string>
            <widget class="QPushButton" name="pushGo">
             <property name="font">
              <font>
-              <family>Ubuntu Medium</family>
-              <pointsize>20</pointsize>
+              <family>Ac437 IBM EGA 8x8</family>
+              <pointsize>19</pointsize>
              </font>
             </property>
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 174);
+width:70px;
+height:50px;</string>
             </property>
             <property name="text">
              <string>Go</string>
@@ -196,7 +223,7 @@ border-color: rgb(235, 224, 255);</string>
            <enum>Qt::Horizontal</enum>
           </property>
           <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
+           <enum>QSizePolicy::Preferred</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>

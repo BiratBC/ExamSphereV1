@@ -14,16 +14,12 @@ Welcome::Welcome(QWidget *parent)
     ui->setupUi(this);
     this->setWindowTitle("ExamSphere");
     this->setWindowIcon(QIcon(":/rec/assets/logo.png"));
-    //QFontDatabase::addApplicationFont(":/rec/assets/Ubuntu-Regular.ttf");
 
 
     QPixmap logo(":/rec/assets/logo.png");
     ui->logo1->setPixmap(logo.scaled(200,200,Qt::KeepAspectRatio));
-    ui->comboBox->addItem(QIcon(":/rec/assets/icons8-student-96.png"),"Student");
+    ui->comboBox->addItem(QIcon(":/rec/assets/icons8-graduate-100.png"),"Student");
     ui->comboBox->addItem(QIcon(":/rec/assets/icons8-teacher-100.png"),"Examiner");
-
-    //QFont Ubuntu("Ubuntu", 20, QFont::Normal);
-    //ui->label->setFont(Ubuntu);
 
 }
 

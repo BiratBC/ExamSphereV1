@@ -1,7 +1,6 @@
 #include "student.h"
 #include "ui_student.h"
 #include <QPixmap>
-#include "welcome.h"
 
 //Welcome *welcomeWindow;
 
@@ -12,9 +11,6 @@ Student::Student(QWidget *parent)
     ui->setupUi(this);
     QPixmap logo(":/rec/assets/logo.png");
     ui->logo4->setPixmap(logo.scaled(200,200,Qt::KeepAspectRatio));
-    ui->subject->addItem("Maths");
-    ui->subject->addItem("Computer");
-    ui->subject->addItem("Science");
 }
 
 Student::~Student()
@@ -25,29 +21,12 @@ Student::~Student()
 
 void Student::on_pushButton_clicked()
 {
-    int x =  ui->subject->currentIndex();
-
-    if(x == 0)
-    {
+        //Verification if student is added to the exam or not
         close();
+
         class8Window = new class8();
         class8Window->showMaximized();
        // login8Window = new ExamSphere();
         //login8Window->showMaximized();
-    }
-    else if(x == 1)
-    {
-        close();
-       // class9Window = new student9login();
-       // class9Window->showMaximized();
-
-    }
-    else
-    {
-        close();
-        //class10Window = new student10login();
-        //class10Window->showMaximized();
-
-    }
 }
 

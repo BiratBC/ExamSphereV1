@@ -12,3 +12,4 @@ score::~score()
 {
     delete ui;
 }
+

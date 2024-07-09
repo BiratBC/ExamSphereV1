@@ -1,5 +1,3 @@
-#include "studentlogin.h"
-
 #include "welcome.h"
 #include <QApplication>
 #include <QSqlDatabase>

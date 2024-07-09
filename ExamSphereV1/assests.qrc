@@ -15,5 +15,9 @@
         <file>assets/bg3.jpg</file>
         <file>assets/icons8-id-50.png</file>
         <file>assets/icons8-password-50.png</file>
+        <file>assets/icons8-graduate-50.png</file>
+        <file>assets/icons8-graduate-100.png</file>
+        <file>assets/icons8-id-100.png</file>
+        <file>assets/icons8-password-100.png</file>
     </qresource>
 </RCC>

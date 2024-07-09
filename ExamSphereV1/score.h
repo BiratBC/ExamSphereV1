@@ -15,6 +15,9 @@ public:
     explicit score(QWidget *parent = nullptr);
     ~score();
 
+public slots:
+
+
 private:
     Ui::score *ui;
 };
