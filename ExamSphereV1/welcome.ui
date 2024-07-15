@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1571</width>
-    <height>767</height>
+    <width>1486</width>
+    <height>808</height>
    </rect>
   </property>
   <property name="font">
@@ -80,7 +80,7 @@ color: rgb(255, 255, 255);</string>
                </font>
               </property>
               <property name="text">
-               <string>Welcome to ExamSphere</string>
+               <string>Welcome to ExamSphere_</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignBottom|Qt::AlignHCenter</set>

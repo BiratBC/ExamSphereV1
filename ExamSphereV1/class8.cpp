@@ -140,9 +140,9 @@ void class8::on_prevButton_clicked()
 
 }
 QVector<QVariantMap> class8::getRandomQuestions(QVector<QVariantMap> questions, int numberOfQuestions) {
-    std::random_device rd;
-    std::mt19937 g(rd());
-    std::shuffle(questions.begin(), questions.end(), g);
+    random_device rd;
+    mt19937 g(rd());
+    shuffle(questions.begin(), questions.end(), g);
     return questions.mid(0, numberOfQuestions);
 }
 void class8::loadQuestion()

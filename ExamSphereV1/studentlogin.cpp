@@ -23,8 +23,14 @@ ExamSphere::ExamSphere(QWidget *parent)
     QPixmap psd(":/rec/assets/icons8-password-50.png");
     ui->psdimg->setPixmap(psd.scaled(40,40,Qt::KeepAspectRatio));
 
-
-
+    QMessageBox messageIntro;
+    messageIntro.resize(800,800);
+    messageIntro.setStyleSheet(
+        "QMessageBox {"
+        "    background-color: #f0f0f0;"
+        "    color: #333333;"
+        "}"
+        );
 
     this->setWindowTitle("Student Login");
     QSqlDatabase dab = QSqlDatabase::addDatabase("QMYSQL");
@@ -35,7 +41,9 @@ ExamSphere::ExamSphere(QWidget *parent)
     dab.setPort(3377);
     dab.open();
     if (!dab.open()) {
-        QMessageBox::critical(this, "Database Error", "Failed to connect to database: " + dab.lastError().text());
+        messageIntro.setWindowTitle("Database Error");
+        messageIntro.setText("Failed to connect to database: " + dab.lastError().text());
+        messageIntro.exec();
     }
 }
 
@@ -46,7 +54,8 @@ ExamSphere::~ExamSphere()
 
 
 void ExamSphere::on_pushButton_clicked()
-{   QMessageBox message;
+{
+    QMessageBox message;
     message.setWindowTitle("Error");
     message.resize(800,800);
     message.setText("Id and Password is not correct!!!");
@@ -59,7 +68,7 @@ void ExamSphere::on_pushButton_clicked()
     QString id=ui->idLine->text();
     QString password=ui->passwordLine->text();
     QSqlQuery query_login(QSqlDatabase::database("Examsphere"));
-    query_login.prepare(QString("SELECT id, password FROM student_Data WHERE id=:id AND password=:password"));
+    query_login.prepare(QString("SELECT id, password FROM students_Data WHERE id=:id AND password=:password"));
     query_login.bindValue(":id",id);
     query_login.bindValue(":password",password);
     if(!query_login.exec())

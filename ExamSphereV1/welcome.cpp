@@ -32,24 +32,21 @@ Welcome::~Welcome()
 
 void Welcome::on_pushGo_clicked()
 {
-   int x =  ui->comboBox->currentIndex();
+    int x =  ui->comboBox->currentIndex();
 
     if(x == 0)
     {
-    close();
-    examWindow = new ExamSphere();
-    examWindow->showMaximized();
-    studentWindow = new Student();
-    //studentWindow->showMaximized();
+        close();
+        examWindow = new ExamSphere();
+        examWindow->showMaximized();
+        studentWindow = new Student();
+        //studentWindow->showMaximized();
     }
     else
     {
-    close();
-    examinerWindow = new ExaminerLogin();
-    examinerWindow->showMaximized();
+        close();
+        examinerWindow = new ExaminerLogin();
+        examinerWindow->showMaximized();
     }
 
 }
-
-
-

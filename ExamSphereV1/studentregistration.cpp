@@ -106,11 +106,11 @@ void studentRegistration::on_pushButton_2_clicked()
         QString cpassword = ui->lineEdit_Cpsd->text();
 
         QSqlQuery chku(dab), chke(dab), chkp(dab);
-        chku.prepare("SELECT * FROM student_Data WHERE id=:id");
+        chku.prepare("SELECT * FROM students_data WHERE id=:id");
         chku.bindValue(":id", id);
-        chke.prepare("SELECT * FROM student_Data WHERE user_email=:user_email");
+        chke.prepare("SELECT * FROM students_data WHERE user_email=:user_email");
         chke.bindValue(":user_email", email);
-        chkp.prepare("SELECT * FROM student_Data WHERE phone_number=:phone_number");
+        chkp.prepare("SELECT * FROM students_data WHERE phone_number=:phone_number");
         chkp.bindValue(":phone_number", pNum1);
 
         chku.exec();
@@ -152,31 +152,43 @@ void studentRegistration::on_pushButton_2_clicked()
         else
         {
             QSqlQuery qry(dab);
-            qry.prepare("INSERT INTO student_data(id, password, first_name, middle_name, last_name, user_email, date_of_birth, phone_number, batch, grade, sex)"
-                        "VALUES(:id, :password, :first_name, :middle_name, :last_name, :user_email, :date_of_birth, :phone_number, :batch, :grade, :sex)");
-            qry.bindValue(":id", id);
-            qry.bindValue(":password", password);
-            qry.bindValue(":first_name", fN);
-            qry.bindValue(":middle_name", mN);
-            qry.bindValue(":last_name", lN);
-            qry.bindValue(":user_email", email);
-            qry.bindValue(":date_of_birth", dob);
-            qry.bindValue(":phone_number", pNum1);
-            qry.bindValue(":batch",batch);
-            qry.bindValue(":grade",grade);
-            qry.bindValue(":sex", sex);
+            QSqlQuery qry2(dab);
 
-            if (qry.exec())
-            {
-                QMessageBox::information(this, "Sign Up", "Signed up successfully.");
-                close();
-                loginWindow = new ExamSphere();
-                loginWindow->showMaximized();
-            }
-            else
-            {
-                QMessageBox::warning(this, "Sign Up", "Sign up failed.");
-                qDebug() << qry.lastError().text() << Qt::endl;
+            qry2.exec("CALL generate_unique_reg_number(@reg_number)");
+
+            qry2.exec("SELECT @reg_number");
+            if (qry2.next()) {
+                QString reg_number = qry2.value(0).toString();
+
+                // Prepare and execute the insert query with the generated registration number
+                qry.prepare("INSERT INTO students_data(id, password, first_name, middle_name, last_name, user_email, date_of_birth, phone_number, batch, grade, sex, registration_num)"
+                            "VALUES(:id, :password, :first_name, :middle_name, :last_name, :user_email, :date_of_birth, :phone_number, :batch, :grade, :sex, :reg_number)");
+                qry.bindValue(":id", id);
+                qry.bindValue(":password", password);
+                qry.bindValue(":first_name", fN);
+                qry.bindValue(":middle_name", mN);
+                qry.bindValue(":last_name", lN);
+                qry.bindValue(":user_email", email);
+                qry.bindValue(":date_of_birth", dob);
+                qry.bindValue(":phone_number", pNum1);
+                qry.bindValue(":batch", batch);
+                qry.bindValue(":grade", grade);
+                qry.bindValue(":sex", sex);
+                qry.bindValue(":reg_number", reg_number);
+                if (qry.exec())
+                {
+                    QMessageBox::information(this, "Sign Up", "Signed up successfully.");
+                    close();
+                    loginWindow = new ExamSphere();
+                    loginWindow->showMaximized();
+                }
+                else
+                {
+                    QMessageBox::warning(this, "Sign Up", "Sign up failed.");
+                    qDebug() << qry.lastError().text() << Qt::endl;
+                }
+            } else {
+                QMessageBox::warning(this, "Error", "Failed to generate registration number.");
             }
         }
     }
