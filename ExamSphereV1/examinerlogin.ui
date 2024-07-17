@@ -176,9 +176,7 @@ QPushButton
                 </font>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-color: rgb(255, 255, 255);
-border-color: rgb(89, 116, 69);
-color: #658147;</string>
+                <string notr="true"/>
                </property>
               </widget>
              </item>
@@ -244,9 +242,7 @@ color: #658147;</string>
                 </font>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-color: rgb(255, 255, 255);
-border-color: rgb(89, 116, 69);
-color: #658147;</string>
+                <string notr="true"/>
                </property>
               </widget>
              </item>

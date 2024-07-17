@@ -19,6 +19,10 @@ addStudents::addStudents(QWidget *parent)
     ui->comboBox->addItem("8");
     ui->comboBox->addItem("9");
     ui->comboBox->addItem("10");
+    ui->tableWidget->setColumnWidth(0, 200);
+    ui->tableWidget->setColumnWidth(1, 200);
+    ui->tableWidget->setColumnWidth(2, 200);
+    ui->tableWidget->setColumnWidth(3, 200);
     QMessageBox messageIntro;
     messageIntro.resize(800,800);
     messageIntro.setStyleSheet(
@@ -51,16 +55,49 @@ addStudents::~addStudents()
 void addStudents::on_pushButton_clicked()
 {
 
+    QSqlDatabase dab = QSqlDatabase::database();
+    if (!dab.isOpen()) {
+        QMessageBox::warning(this, "Database Error", "Failed to open the database.");
+        return;
+    }
+
+    qDebug() << "Database connection is open:" << dab.isOpen();
+
+    QString id = ui->lineEdit->text();
+    QSqlQuery query_insert_data(dab);
+    query_insert_data.prepare("INSERT INTO exam_data (id, first_name, last_name, grade) SELECT id, first_name, last_name, grade FROM students_data WHERE id = :id");
+    query_insert_data.bindValue(":id", id);
+
+    if (!query_insert_data.exec()) {
+        QMessageBox::warning(this, "Invalid", "Invalid ID or Not Registered: ");
+        dab.rollback();
+    }
+    else
+    {
+        QMessageBox::information(this,"Success","Record of id "+ui->lineEdit->text()+" added successfully!!!");
+    }
+
 }
 
 
 void addStudents::on_pushButton_2_clicked()
 {
-    dab.open();
+    QSqlDatabase dab = QSqlDatabase::database();
     QSqlDatabase::database().transaction();
+    //DELETE
     QSqlQuery Query_Delete_Data(dab);
-    Query_Delete_Data.prepare("DELETE FROM students_data WHERE id=" + ui->lineEdit->text() + "");
+    Query_Delete_Data.prepare("DELETE FROM exam_data WHERE id=" + ui->lineEdit->text() + "");
     Query_Delete_Data.exec();
+    if(!Query_Delete_Data.exec())
+    {
+        QMessageBox::warning(this, "Invalid", "Not deleted ");
+        dab.rollback();
+
+    }
+    else
+    {
+        QMessageBox::information(this,"Success","Record of id "+ui->lineEdit->text()+" deleted successfully!!!");
+    }
     QSqlDatabase::database().commit();
    // dab.close();
 }
@@ -80,9 +117,10 @@ void addStudents::on_pushButton_4_clicked()
     int a = ui->comboBox->currentIndex();
     if(a == 0)
     {
-        dab.open();
+        QSqlDatabase dab = QSqlDatabase::database();
         QSqlQuery Query_Get_Data(dab);
-        Query_Get_Data.prepare("SELECT id,first_name,last_name,grade from students_data WHERE grade = '8'");
+        //DISPLAY
+        Query_Get_Data.prepare("SELECT id,first_name,last_name,grade from exam_data WHERE grade = '8'");
         if(Query_Get_Data.exec())
         {
             int RowNum = 0;
@@ -100,9 +138,9 @@ void addStudents::on_pushButton_4_clicked()
     }
     else if (a == 1)
     {
-        dab.open();
+        QSqlDatabase dab = QSqlDatabase::database();
         QSqlQuery Query_Get_Data(dab);
-        Query_Get_Data.prepare("SELECT id,first_name,last_name,grade from students_data WHERE grade = '9'");
+        Query_Get_Data.prepare("SELECT id,first_name,last_name,grade from exam_data WHERE grade = '9'");
         if(Query_Get_Data.exec())
         {
             int RowNum = 0;
@@ -120,9 +158,9 @@ void addStudents::on_pushButton_4_clicked()
     }
     else
     {
-        dab.open();
+        QSqlDatabase dab = QSqlDatabase::database();
         QSqlQuery Query_Get_Data(dab);
-        Query_Get_Data.prepare("SELECT id,first_name,last_name,grade from students_data WHERE grade = '10'");
+        Query_Get_Data.prepare("SELECT id,first_name,last_name,grade from exam_data WHERE grade = '10'");
         if(Query_Get_Data.exec())
         {
             int RowNum = 0;
