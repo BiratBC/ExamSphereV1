@@ -68,8 +68,8 @@ void ExaminerLogin::on_pushButton_clicked()
             if(idd==id && passwordd==password)
             {
                 close();
-                addWindow = new addStudents();
-                addWindow->showMaximized();
+                examinerWindow = new examiner();
+                examinerWindow->showMaximized();
 
             }
 
@@ -94,6 +94,7 @@ void ExaminerLogin::on_register_2_clicked()
 
 void ExaminerLogin::on_pushButton_2_clicked()
 {
+    close();
     welcomeWindow2 = new Welcome();
     welcomeWindow2->showMaximized();
 }

@@ -9,6 +9,7 @@
 #include <QRandomGenerator>
 #include <algorithm>
 #include "student.h"
+#include <QTimer>
 
 using namespace std;
 Student *studentWindow2;

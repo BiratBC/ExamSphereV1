@@ -16,6 +16,7 @@ SOURCES += \
     class10.cpp \
     class8.cpp \
     class9.cpp \
+    examiner.cpp \
     examinerlogin.cpp \
     main.cpp \
     score.cpp \
@@ -30,6 +31,7 @@ HEADERS += \
     class10.h \
     class8.h \
     class9.h \
+    examiner.h \
     examinerlogin.h \
     score.h \
     student.h \
@@ -43,6 +45,7 @@ FORMS += \
     class10.ui \
     class8.ui \
     class9.ui \
+    examiner.ui \
     examinerlogin.ui \
     score.ui \
     student.ui \

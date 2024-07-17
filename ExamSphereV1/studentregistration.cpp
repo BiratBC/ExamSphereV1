@@ -117,6 +117,16 @@ void studentRegistration::on_pushButton_2_clicked()
         chkp.exec();
         chke.exec();
 
+
+        QString fn1 = ui->lineEdit_fN->text();
+        QString ln1 = ui->lineEdit_lN->text();
+        QString id1 = ui->lineEdit_id->text();
+        QString grade1 = ui->lineEdit_class->text();
+
+        chku.prepare("SELECT * FROM exam_data WHERE id=:id");
+        chku.bindValue(":id", id1);
+        chku.exec();
+
         if (password != cpassword)
         {
             QMessageBox::warning(this, "Error", "Password doesn't match. Please try again.");
@@ -153,7 +163,7 @@ void studentRegistration::on_pushButton_2_clicked()
         {
             QSqlQuery qry(dab);
             QSqlQuery qry2(dab);
-
+            QSqlQuery qry3(dab);
             qry2.exec("CALL generate_unique_reg_number(@reg_number)");
 
             qry2.exec("SELECT @reg_number");
@@ -175,19 +185,31 @@ void studentRegistration::on_pushButton_2_clicked()
                 qry.bindValue(":grade", grade);
                 qry.bindValue(":sex", sex);
                 qry.bindValue(":reg_number", reg_number);
-                if (qry.exec())
-                {
-                    QMessageBox::information(this, "Sign Up", "Signed up successfully.");
-                    close();
-                    loginWindow = new ExamSphere();
-                    loginWindow->showMaximized();
-                }
-                else
-                {
-                    QMessageBox::warning(this, "Sign Up", "Sign up failed.");
-                    qDebug() << qry.lastError().text() << Qt::endl;
-                }
-            } else {
+
+
+                qry3.prepare("INSERT INTO exam_data(id,first_name,last_name,grade)"
+                                 "VALUES(:id, :first_name, :last_name, :grade)");
+                qry3.bindValue(":id",id1);
+                qry3.bindValue(":first_name",fn1);
+                qry3.bindValue(":last_name",ln1);
+                qry3.bindValue(":grade",grade1);
+
+                        if (qry.exec() && qry3.exec())
+                        {
+                            QMessageBox::information(this, "Sign Up", "Signed up successfully.");
+                            close();
+                            loginWindow = new ExamSphere();
+                            loginWindow->showMaximized();
+                        }
+                        else
+                        {
+                            QMessageBox::warning(this, "Sign Up", "Sign up failed.");
+                            qDebug() << qry.lastError().text() << Qt::endl;
+                        }
+
+            }
+            else
+            {
                 QMessageBox::warning(this, "Error", "Failed to generate registration number.");
             }
         }

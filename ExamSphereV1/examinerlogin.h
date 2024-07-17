@@ -2,9 +2,9 @@
 #define EXAMINERLOGIN_H
 
 #include <QDialog>
-#include "addstudents.h"
 #include <QSqlDatabase>
 #include "teacherregistration.h"
+#include "examiner.h"
 
 namespace Ui {
 class ExaminerLogin;
@@ -28,9 +28,8 @@ private slots:
 private:
     Ui::ExaminerLogin *ui;
     QSqlDatabase dab;
-   // ExaminerLogin *examinerWindow;
-    addStudents *addWindow;
     teacherRegistration *signup;
+    examiner *examinerWindow;
 };
 
 #endif // EXAMINERLOGIN_H
