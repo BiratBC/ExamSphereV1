@@ -6,11 +6,21 @@
 #include <QtSql/QSqlError>
 #include <QtSql/QSqlQuery>
 
+#include <QDialog>
+
 //Welcome *welcomeWindow;
 
-Student::Student(QWidget *parent)
+Student::Student(const QString &id, const QString &fname, const QString &lname, const QString &email, const QDate &dob,
+                 const QString &batch, const QString &grade, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Student)
+    , studentId(id)
+    , studentFName(fname)
+    , studentLName(lname)
+   ,studentEmail(email)
+    ,studentDOB(dob)
+    ,studentBatch(batch)
+    , studentGrade(grade)
 {
     ui->setupUi(this);
     QPixmap logo(":/rec/assets/logo.png");
@@ -23,6 +33,15 @@ Student::Student(QWidget *parent)
         "    color: #333333;"
         "}"
         );
+
+    ui->idLabel->setText(studentId);
+    ui->nameLabel->setText(studentFName);
+    ui->nameLabel->setText(studentLName);
+    ui->emailLabel->setText(studentEmail);
+    ui->dobLabel->setText(studentDOB.toString("yyyy-MM-dd"));
+    ui->batchLabel->setText(studentBatch);
+    ui->gradeLabel->setText(studentGrade);
+
     QSqlDatabase dab = QSqlDatabase::addDatabase("QMYSQL");
     dab.setHostName("localhost");
     dab.setUserName("root");
@@ -50,7 +69,5 @@ void Student::on_pushButton_clicked()
 
         class8Window = new class8();
         class8Window->showMaximized();
-       // login8Window = new ExamSphere();
-        //login8Window->showMaximized();
 }
 

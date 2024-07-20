@@ -27,6 +27,7 @@ class ExamSphere : public QMainWindow
 
 public:
     ExamSphere(QWidget *parent = nullptr);
+
     ~ExamSphere();
 
 private slots:

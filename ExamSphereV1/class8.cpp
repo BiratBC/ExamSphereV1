@@ -10,6 +10,7 @@
 #include <algorithm>
 #include "student.h"
 #include <QTimer>
+#include <QDate>
 
 using namespace std;
 Student *studentWindow2;
@@ -211,7 +212,7 @@ void class8::on_nextButton_clicked()
 void class8::on_homeButton_clicked()
 {
     close();
-    studentWindow2 = new Student();
+    studentWindow2 = new Student("defaultID","defaultFname","defaultLname","defaultEmail",QDate(2024,07,21),"defaultBatch","defaultGrade",this);
     studentWindow2->showMaximized();
 }
 

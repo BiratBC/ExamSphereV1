@@ -68,7 +68,7 @@ void ExamSphere::on_pushButton_clicked()
     QString id=ui->idLine->text();
     QString password=ui->passwordLine->text();
     QSqlQuery query_login(QSqlDatabase::database("Examsphere"));
-    query_login.prepare(QString("SELECT id, password FROM students_Data WHERE id=:id AND password=:password"));
+    query_login.prepare(QString("SELECT id, password, first_name, last_name, user_email,date_of_birth, batch, grade FROM students_data WHERE id=:id AND password=:password"));
     query_login.bindValue(":id",id);
     query_login.bindValue(":password",password);
     if(!query_login.exec())
@@ -81,10 +81,16 @@ void ExamSphere::on_pushButton_clicked()
         {
             QString iddb=query_login.value(0).toString();
             QString passworddb=query_login.value(1).toString();
+            QString fnamedb = query_login.value(2).toString();
+            QString lnamedb = query_login.value(3).toString();
+            QString emaildb = query_login.value(4).toString();
+            QDate dob = query_login.value(5).toDate();
+            QString batchdb = query_login.value(6).toString();
+            QString gradedb = query_login.value(7).toString();
             if(iddb==id && passworddb==password)
             {
                 close();
-                studentDashboard = new Student();
+                studentDashboard = new Student(iddb,fnamedb,lnamedb,emaildb,dob,batchdb,gradedb,this);
                 studentDashboard->showMaximized();
             }
 
@@ -94,7 +100,7 @@ void ExamSphere::on_pushButton_clicked()
             message.exec();
 
 
-           // ui->statusbar->showMessage("Username and Password is not correct!!!");
+        // ui->statusbar->showMessage("Username and Password is not correct!!!");
     }
 }
 
@@ -113,4 +119,3 @@ void ExamSphere::on_pushButton_3_clicked()
     registrationWindow = new studentRegistration();
     registrationWindow->showMaximized();
 }
-

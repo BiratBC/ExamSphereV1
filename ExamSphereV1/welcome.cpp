@@ -39,7 +39,7 @@ void Welcome::on_pushGo_clicked()
         close();
         examWindow = new ExamSphere();
         examWindow->showMaximized();
-        studentWindow = new Student();
+        studentWindow = new Student("defaultID","defaultFname","defaultLname","defaultEmail",QDate(2024,07,21),"defaultBatch","defaultGrade",this);
         //studentWindow->showMaximized();
     }
     else
