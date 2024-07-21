@@ -41,6 +41,7 @@ ExamSphere::ExamSphere(QWidget *parent)
     dab.setPort(3377);
     dab.open();
     if (!dab.open()) {
+        qDebug() << "Error: " << dab.lastError().text();
         messageIntro.setWindowTitle("Database Error");
         messageIntro.setText("Failed to connect to database: " + dab.lastError().text());
         messageIntro.exec();
