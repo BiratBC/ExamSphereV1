@@ -54,7 +54,7 @@ FORMS += \
     teacherregistration.ui \
     welcome.ui
 
-# Default rules for deployment.
+# Default rules for devloyment.....
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
