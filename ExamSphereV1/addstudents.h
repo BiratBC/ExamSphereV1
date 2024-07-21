@@ -28,9 +28,13 @@ private slots:
 
     void on_pushButton_5_clicked();
 
+    void on_pushButton_6_clicked();
+
 private:
     Ui::addStudents *ui;
     QSqlDatabase dab;
+    QString filePath;
+    addStudents *addStudentWindow;
 };
 
 #endif // ADDSTUDENTS_H

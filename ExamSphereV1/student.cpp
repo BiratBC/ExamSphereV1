@@ -35,8 +35,8 @@ Student::Student(const QString &id, const QString &fname, const QString &lname, 
         );
 
     ui->idLabel->setText(studentId);
-    ui->nameLabel->setText(studentFName);
-    ui->nameLabel->setText(studentLName);
+    ui->FnameLabel->setText(studentFName);
+    ui->LnameLabel->setText(studentLName);
     ui->emailLabel->setText(studentEmail);
     ui->dobLabel->setText(studentDOB.toString("yyyy-MM-dd"));
     ui->batchLabel->setText(studentBatch);

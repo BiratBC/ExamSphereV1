@@ -250,7 +250,7 @@ QTableWidget
              <x>0</x>
              <y>0</y>
              <width>1196</width>
-             <height>209</height>
+             <height>205</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_2">
@@ -321,6 +321,13 @@ QTableWidget
             </spacer>
            </item>
            <item>
+            <widget class="QPushButton" name="pushButton_6">
+             <property name="text">
+              <string>Add Questions</string>
+             </property>
+            </widget>
+           </item>
+           <item>
             <widget class="QPushButton" name="pushButton_3">
              <property name="styleSheet">
               <string notr="true"/>
@@ -373,6 +380,13 @@ QTableWidget
          </size>
         </property>
        </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="filePathLabel">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>

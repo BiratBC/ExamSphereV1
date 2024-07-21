@@ -7,6 +7,9 @@
 #include <QtSql/QSqlQuery>
 #include "examiner.h"
 #include <QString>
+#include <QFileDialog>
+#include <QFile>
+#include <QTextStream>
 
 examiner *examinerWindow2;
 
@@ -23,6 +26,7 @@ addStudents::addStudents(QWidget *parent)
     ui->tableWidget->setColumnWidth(1, 200);
     ui->tableWidget->setColumnWidth(2, 200);
     ui->tableWidget->setColumnWidth(3, 200);
+    ui->filePathLabel->hide();
     QMessageBox messageIntro;
     messageIntro.resize(800,800);
     messageIntro.setStyleSheet(
@@ -106,8 +110,57 @@ void addStudents::on_pushButton_2_clicked()
 void addStudents::on_pushButton_3_clicked()
 {
     QMessageBox msg;
+
+
+    if (filePath.isEmpty()) {
+        QMessageBox::warning(this, "No File Selected", "Please select a file to upload.");
+        return;
+    }
+
+    QFile file(filePath);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        QMessageBox::warning(this, "File Error", "Failed to open the file.");
+        return;
+    }
+
+    QTextStream in(&file);
+    QString fileContent = in.readAll();
+    file.close();
+
+    QSqlQuery query;
+    QStringList lines = fileContent.split('\n');
+    for (const QString &line : lines) {
+        QStringList fields = line.split(',');
+        if (fields.size() == 7) {  // Adjusted to 7 fields
+            qDebug() << "Inserting:" << fields.join(", ");  // Debug output to check values
+
+            query.prepare("INSERT INTO questions (question_code, question, option1, option2, option3, option4, correct) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            query.addBindValue(fields[0]);
+            query.addBindValue(fields[1]);
+            query.addBindValue(fields[2]);
+            query.addBindValue(fields[3]);
+            query.addBindValue(fields[4]);
+            query.addBindValue(fields[5]);
+            query.addBindValue(fields[6]);
+
+            if (!query.exec()) {
+                QMessageBox::warning(this, "Database Error", "Failed to insert data: " + query.lastError().text());
+                qDebug() << "Query Error:" << query.lastError().text();  // Debug output for query errors
+            }
+        } else {
+            qDebug() << "Skipping line due to incorrect field count:" << line;
+        }
+    }
+
     msg.setText("Exam started successfully!");
     msg.setStandardButtons(QMessageBox::Ok);
+    if(QMessageBox::Accepted)
+    {
+        close();
+        addStudentWindow = new addStudents();
+        addStudentWindow->showMaximized();
+    }
     msg.exec();
 }
 
@@ -184,5 +237,15 @@ void addStudents::on_pushButton_5_clicked()
     close();
     examinerWindow2 =  new examiner();
     examinerWindow2->showMaximized();
+}
+
+
+void addStudents::on_pushButton_6_clicked()
+{
+    filePath = QFileDialog::getOpenFileName(this, tr("Select CSV File"), "", tr("CSV Files (*.csv);;All Files (*)"));
+    if (!filePath.isEmpty()) {
+        ui->filePathLabel->show();
+        ui->filePathLabel->setText(filePath);
+    }
 }
 
