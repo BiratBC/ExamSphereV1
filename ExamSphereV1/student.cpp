@@ -5,8 +5,10 @@
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlError>
 #include <QtSql/QSqlQuery>
-
 #include <QDialog>
+#include <studentlogin.h>
+
+ExamSphere *logoutWindow;
 
 //Welcome *welcomeWindow;
 
@@ -65,9 +67,55 @@ Student::~Student()
 void Student::on_pushButton_clicked()
 {
         //Verification if student is added to the exam or not
-        close();
 
-        class8Window = new class8();
-        class8Window->showMaximized();
+        QString grade = ui->gradeLabel->text();
+        QString id = ui->idLabel->text();
+        QSqlQuery query_verify(QSqlDatabase::database("Examsphere"));
+        query_verify.prepare(QString("SELECT id, grade FROM exam_data WHERE id=:id "));
+        query_verify.bindValue(":id",id);
+        if(!query_verify.exec())
+        {
+            QMessageBox::warning(this,"Error","Verfication Error!!!");
+        }
+        else
+        {
+            if(query_verify.next())
+            {
+                QString iddb=query_verify.value(0).toString();
+                if(iddb == id)
+                {
+                    if(grade == '8')
+                    {
+                        close();
+                        class8Window = new class8();
+                        class8Window->showMaximized();
+                    }
+                    else if(grade == '9')
+                    {
+                        close();
+                        class9Window = new class9();
+                        class9Window->showMaximized();
+                    }
+                    else
+                    {
+                        close();
+                        class10Window = new class10();
+                        class10Window->showMaximized();
+                    }
+                }
+            }
+            else
+            {
+                QMessageBox::warning(this,"Not Enrolled","You are not enrolled in this exam yet. Please contact your teacher!");
+            }
+        }
+}
+
+
+void Student::on_pushButton_4_clicked()
+{
+    close();
+    logoutWindow = new ExamSphere();
+    logoutWindow->showMaximized();
 }
 

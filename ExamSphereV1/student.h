@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include "class8.h"
+#include "class9.h"
+#include "class10.h"
 #include "qdatetime.h"
 
 #include <QString>
@@ -28,6 +30,8 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_pushButton_4_clicked();
+
 private:
     Ui::Student *ui;
     QString studentId;
@@ -38,6 +42,8 @@ private:
     QString studentBatch;
     QString studentGrade;
     class8 *class8Window;
+    class9 *class9Window;
+    class10 *class10Window;
 
 };
 
