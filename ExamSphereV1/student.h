@@ -6,7 +6,7 @@
 #include "class9.h"
 #include "class10.h"
 #include "qdatetime.h"
-
+#include "changepassword.h"
 #include <QString>
 
 
@@ -50,6 +50,8 @@ private:
     class8 *class8Window;
     class9 *class9Window;
     class10 *class10Window;
+
+    changePassword *passwordWindow;
 
 };
 

@@ -508,7 +508,7 @@ QPushButton
                   </font>
                  </property>
                  <property name="cursor">
-                  <cursorShape>ArrowCursor</cursorShape>
+                  <cursorShape>PointingHandCursor</cursorShape>
                  </property>
                  <property name="styleSheet">
                   <string notr="true"/>
@@ -542,6 +542,9 @@ QPushButton
                    <pointsize>20</pointsize>
                   </font>
                  </property>
+                 <property name="cursor">
+                  <cursorShape>PointingHandCursor</cursorShape>
+                 </property>
                  <property name="text">
                   <string>Check Previous Results</string>
                  </property>
@@ -570,6 +573,9 @@ QPushButton
                    <family>AcPlus IBM CGA</family>
                    <pointsize>20</pointsize>
                   </font>
+                 </property>
+                 <property name="cursor">
+                  <cursorShape>PointingHandCursor</cursorShape>
                  </property>
                  <property name="text">
                   <string>Log Out</string>

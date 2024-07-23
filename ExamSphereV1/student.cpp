@@ -128,7 +128,9 @@ void Student::on_pushButton_2_clicked()
 
 void Student::on_changePassword_clicked()
 {
-
+    close();
+    passwordWindow = new changePassword(studentId,studentFName,studentLName,studentEmail,studentDOB,studentBatch,studentGrade,this);
+    passwordWindow->showMaximized();
 }
 
 
