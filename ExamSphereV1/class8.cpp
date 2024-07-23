@@ -21,14 +21,15 @@ class8::class8(const QString &id, const QString &fname, const QString &lname, co
     : QDialog(parent)
     , ui(new Ui::class8)
     ,studentId(id)
-    , studentFName(fname)
-    , studentLName(lname)
+    ,studentFName(fname)
+    ,studentLName(lname)
     ,studentEmail(email)
     ,studentDOB(dob)
     ,studentBatch(batch)
-    , studentGrade(grade)
+    ,studentGrade(grade)
     ,currentQuestionIndex(0)
     ,scoreRec(0)
+    ,timeRemaining(100)
 {
     ui->setupUi(this);
     this->setWindowTitle("Class 8");
@@ -50,7 +51,8 @@ class8::class8(const QString &id, const QString &fname, const QString &lname, co
         return;
     }
 
-
+    timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &class8::updateTimer);
 
 }
 
@@ -63,6 +65,9 @@ void class8::on_start_clicked()
     ui->nextButton->show();
     ui->prevButton->show();
     ui->groupBox_2->show();
+    ui->start->hide();
+    ui->subject->hide();
+    ui->label->hide();
 
     int a = ui->subject->currentIndex();
 
@@ -90,6 +95,7 @@ void class8::on_start_clicked()
         questions = getRandomQuestions(questions, 4);
 
         loadQuestion();
+         timer->start(1000);
     }
     else if (a == 1)
     {
@@ -115,6 +121,7 @@ void class8::on_start_clicked()
         questions = getRandomQuestions(questions, 4);
 
         loadQuestion();
+         timer->start(1000);
     }
     else
     {
@@ -141,6 +148,7 @@ void class8::on_start_clicked()
         questions = getRandomQuestions(questions, 4);
 
         loadQuestion();
+         timer->start(1000);
     }
 
 }
@@ -205,6 +213,8 @@ void class8::on_nextButton_clicked()
     if (currentQuestionIndex < questions.size()) {
         loadQuestion();
     } else {
+        timer->stop();
+        ui->timerLabel->setText(QString("Time Remaining: 00:00"));
         ui->questionLabel->setText(QString("Congratulations!!! You got %1").arg(scoreRec));
         ui->option1->hide();
         ui->option2->hide();
@@ -216,6 +226,24 @@ void class8::on_nextButton_clicked()
     }
 }
 
+void class8::updateTimer() {
+    timeRemaining--;
+    int minutes = timeRemaining / 60;
+    int seconds = timeRemaining % 60;
+    ui->timerLabel->setText(QString("Time Remaining: %1:%2").arg(minutes, 2, 10, QChar('0')).arg(seconds, 2, 10, QChar('0')));
+
+    if (timeRemaining <= 0) {
+        timerTimeout();
+    }
+}
+
+void class8::timerTimeout() {
+    timer->stop();
+    checkAnswer();
+    ui->questionLabel->setText(QString("Time's up! You got %1").arg(scoreRec));
+    ui->option1->hide();
+    ui->option2->hide();
+}
 
 void class8::on_homeButton_clicked()
 {

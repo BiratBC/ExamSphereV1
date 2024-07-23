@@ -31,6 +31,11 @@ private slots:
 
     void on_start_clicked();
 
+    void updateTimer();
+
+    void timerTimeout();
+
+
 private:
     Ui::class8 *ui;
     QSqlDatabase db;
@@ -46,6 +51,9 @@ private:
 
     int currentQuestionIndex;
     int scoreRec;
+
+    QTimer *timer;
+    int timeRemaining;
 
     void loadQuestion();
     void checkAnswer();

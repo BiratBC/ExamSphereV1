@@ -132,10 +132,10 @@ void addStudents::on_pushButton_3_clicked()
     QStringList lines = fileContent.split('\n');
     for (const QString &line : lines) {
         QStringList fields = line.split(',');
-        if (fields.size() == 7) {  // Adjusted to 7 fields
+        if (fields.size() == 8) {
             qDebug() << "Inserting:" << fields.join(", ");  // Debug output to check values
 
-            query.prepare("INSERT INTO questions (question_code, question, option1, option2, option3, option4, correct) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            query.prepare("INSERT INTO questions (class_code, question_code, question, option1, option2, option3, option4, correct) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             query.addBindValue(fields[0]);
             query.addBindValue(fields[1]);
             query.addBindValue(fields[2]);
@@ -143,6 +143,7 @@ void addStudents::on_pushButton_3_clicked()
             query.addBindValue(fields[4]);
             query.addBindValue(fields[5]);
             query.addBindValue(fields[6]);
+            query.addBindValue(fields[7]);
 
             if (!query.exec()) {
                 QMessageBox::warning(this, "Database Error", "Failed to insert data: " + query.lastError().text());

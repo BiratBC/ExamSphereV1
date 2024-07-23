@@ -45,6 +45,13 @@ QPushButton
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
       <item row="3" column="0">
+       <widget class="QPushButton" name="start">
+        <property name="text">
+         <string>Go</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
        <widget class="QScrollArea" name="scrollArea">
         <property name="widgetResizable">
          <bool>true</bool>
@@ -55,7 +62,7 @@ QPushButton
            <x>0</x>
            <y>0</y>
            <width>851</width>
-           <height>447</height>
+           <height>395</height>
           </rect>
          </property>
          <layout class="QGridLayout" name="gridLayout">
@@ -162,7 +169,11 @@ QPushButton
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QComboBox" name="subject"/>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>*Carefully choose the subject</string>
+        </property>
+       </widget>
       </item>
       <item row="0" column="0">
        <layout class="QHBoxLayout" name="horizontalLayout">
@@ -192,9 +203,18 @@ QPushButton
        </layout>
       </item>
       <item row="2" column="0">
-       <widget class="QPushButton" name="start">
+       <widget class="QComboBox" name="subject"/>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="timerLabel">
+        <property name="font">
+         <font>
+          <family>AcPlus IBM CGA</family>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
         <property name="text">
-         <string>Go</string>
+         <string/>
         </property>
        </widget>
       </item>
