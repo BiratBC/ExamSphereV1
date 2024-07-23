@@ -494,7 +494,7 @@ QPushButton
                 </spacer>
                </item>
                <item>
-                <widget class="QPushButton" name="pushButton_2">
+                <widget class="QPushButton" name="changePassword">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                    <horstretch>0</horstretch>
@@ -535,7 +535,7 @@ QPushButton
                 </spacer>
                </item>
                <item>
-                <widget class="QPushButton" name="pushButton_3">
+                <widget class="QPushButton" name="prevResult">
                  <property name="font">
                   <font>
                    <family>AcPlus IBM CGA</family>

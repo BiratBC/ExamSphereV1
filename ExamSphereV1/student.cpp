@@ -87,19 +87,19 @@ void Student::on_pushButton_clicked()
                     if(grade == '8')
                     {
                         close();
-                        class8Window = new class8();
+                        class8Window = new class8(studentId,studentFName,studentLName,studentEmail,studentDOB,studentBatch,studentGrade,this);
                         class8Window->showMaximized();
                     }
                     else if(grade == '9')
                     {
                         close();
-                        class9Window = new class9();
+                        class9Window = new class9(studentId,studentFName,studentLName,studentEmail,studentDOB,studentBatch,studentGrade,this);
                         class9Window->showMaximized();
                     }
                     else
                     {
                         close();
-                        class10Window = new class10();
+                        class10Window = new class10(studentId,studentFName,studentLName,studentEmail,studentDOB,studentBatch,studentGrade,this);
                         class10Window->showMaximized();
                     }
                 }
@@ -117,5 +117,23 @@ void Student::on_pushButton_4_clicked()
     close();
     logoutWindow = new ExamSphere();
     logoutWindow->showMaximized();
+}
+
+
+void Student::on_pushButton_2_clicked()
+{
+
+}
+
+
+void Student::on_changePassword_clicked()
+{
+
+}
+
+
+void Student::on_prevResult_clicked()
+{
+
 }
 

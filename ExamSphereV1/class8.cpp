@@ -13,12 +13,20 @@
 #include <QDate>
 
 using namespace std;
-Student *studentWindow2;
+Student *studentDashboard1;
 
 
-class8::class8(QWidget *parent)
+class8::class8(const QString &id, const QString &fname, const QString &lname, const QString &email, const QDate &dob,
+               const QString &batch, const QString &grade, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::class8)
+    ,studentId(id)
+    , studentFName(fname)
+    , studentLName(lname)
+    ,studentEmail(email)
+    ,studentDOB(dob)
+    ,studentBatch(batch)
+    , studentGrade(grade)
     ,currentQuestionIndex(0)
     ,scoreRec(0)
 {
@@ -61,7 +69,7 @@ void class8::on_start_clicked()
     if(a == 0)
     {
         query = QSqlQuery(db);
-        if (!query.exec("SELECT * FROM questions WHERE question_code = '1001'")) {
+        if (!query.exec("SELECT * FROM questions WHERE subject_code = '1001' AND class_code = '8'")) {
             qDebug() << "Error: " << query.lastError();
             return;
         }
@@ -86,7 +94,7 @@ void class8::on_start_clicked()
     else if (a == 1)
     {
         query = QSqlQuery(db);
-        if (!query.exec("SELECT * FROM questions WHERE question_code = '1002'")) {
+        if (!query.exec("SELECT * FROM questions WHERE subject_code = '1002' AND class_code = '8'")) {
             qDebug() << "Error: " << query.lastError();
             return;
         }
@@ -112,7 +120,7 @@ void class8::on_start_clicked()
     {
         //For Science
         query = QSqlQuery(db);
-        if (!query.exec("SELECT * FROM questions WHERE question_code = '1003'")) {
+        if (!query.exec("SELECT * FROM questions WHERE subject_code = '1003' AND class_code = '8'")) {
             qDebug() << "Error: " << query.lastError();
             return;
         }
@@ -212,8 +220,8 @@ void class8::on_nextButton_clicked()
 void class8::on_homeButton_clicked()
 {
     close();
-    studentWindow2 = new Student("defaultID","defaultFname","defaultLname","defaultEmail",QDate(2024,07,21),"defaultBatch","defaultGrade",this);
-    studentWindow2->showMaximized();
+    studentDashboard1 = new Student(studentId,studentFName,studentLName,studentEmail,studentDOB,studentBatch,studentGrade,this);
+    studentDashboard1->showMaximized();
 }
 
 

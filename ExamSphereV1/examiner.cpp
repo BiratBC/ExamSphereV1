@@ -22,7 +22,6 @@ void examiner::on_pushButton_clicked()
 
 void examiner::on_pushButton_2_clicked()
 {
-    //gKDDHJA
     close();
     addWindow =  new addStudents();
     addWindow->showMaximized();
