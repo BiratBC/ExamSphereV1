@@ -10,6 +10,7 @@
 #include <QFileDialog>
 #include <QFile>
 #include <QTextStream>
+#include
 
 examiner *examinerWindow2;
 
@@ -107,7 +108,7 @@ void addStudents::on_pushButton_2_clicked()
 }
 
 
-void addStudents::on_pushButton_3_clicked()
+void addStudents::on_createExam_clicked()
 {
     QMessageBox msg;
 

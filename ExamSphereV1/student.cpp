@@ -8,6 +8,8 @@
 #include <QDialog>
 #include <studentlogin.h>
 #include "checkresult.h"
+#include "pastresult.h"
+PastResult *pastResultWindow;
 CheckResult *resultWindow1;
 ExamSphere *logoutWindow;
 
@@ -137,7 +139,8 @@ void Student::on_changePassword_clicked()
 
 void Student::on_prevResult_clicked()
 {
-    resultWindow1 = new CheckResult("default",this);
-    resultWindow1->showMaximized();
+    close();
+    pastResultWindow = new PastResult(studentId,studentGrade);
+    pastResultWindow->showMaximized();
 }
 

@@ -17,6 +17,9 @@ public:
     explicit CheckResult(const QString &marks, QWidget *parent = nullptr);
     ~CheckResult();
 
+private slots:
+    void on_checkResult_clicked();
+
 private:
     Ui::CheckResult *ui;
     QString studentMarks;
