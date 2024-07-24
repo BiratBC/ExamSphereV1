@@ -13,7 +13,9 @@ class PastResult : public QDialog
 
 public:
     PastResult(){}
-    explicit PastResult(const QString &id, const QString &grade, const QString &total, const QString &obtained, QWidget *parent = nullptr);
+    //explicit PastResult(const QString &id, const QString &grade, QWidget *parent = nullptr);
+    //explicit PastResult(const QString &exam_type);
+    explicit PastResult(const QString &exam_type, const QString &id, const QString &grade, const QString &total, const QString &obtained, QWidget *parent = nullptr);
     ~PastResult();
 private slots:
     void on_checkResult_clicked();

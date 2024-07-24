@@ -6,7 +6,7 @@
 #include <QDebug>
 #include <QSqlError>
 
-PastResult::PastResult(const QString &id, const QString &grade, const QString &total, const QString &obtained, QWidget *parent)
+PastResult::PastResult(const QString &exam_type, const QString &id, const QString &grade, const QString &total, const QString &obtained, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::PastResult)
 {

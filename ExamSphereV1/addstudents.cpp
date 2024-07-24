@@ -10,7 +10,9 @@
 #include <QFileDialog>
 #include <QFile>
 #include <QTextStream>
-#include
+#include "pastresult.h"
+
+PastResult *pastResultWindow1;
 
 examiner *examinerWindow2;
 
@@ -161,7 +163,7 @@ void addStudents::on_createExam_clicked()
             qDebug() << "Skipping line due to incorrect field count:" << line;
         }
     }
-
+    pastResultWindow1 = new PastResult(examtype,"a","b","c","d",this);
     msg.setText("Exam started successfully!");
     msg.setStandardButtons(QMessageBox::Ok);
     if(QMessageBox::Accepted)

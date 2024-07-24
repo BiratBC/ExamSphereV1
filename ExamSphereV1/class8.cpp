@@ -225,6 +225,10 @@ void class8::on_nextButton_clicked()
         ui->nextButton->hide();
         ui->prevButton->hide();
         ui->homeButton->show();
+        QSqlQuery qry(db);
+        qry.prepare("INSERT INTO results(exam_type, id, grade, subject, total_marks, obtained_marks)"
+                    "VALUES(:exam_type, :id, :grade, :subject, :total_marks, :obtained_marks, :phone_number, :subject_code, :sex)");
+        qry.bindValue(":teacher_id", id);
         resultWindow2 = new CheckResult(QString::number(scoreRec),this);
 
     }
