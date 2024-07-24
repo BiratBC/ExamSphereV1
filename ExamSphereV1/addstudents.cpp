@@ -11,6 +11,10 @@
 #include <QFile>
 #include <QTextStream>
 #include "pastresult.h"
+#include "class8.h"
+#include <QDate>
+
+class8 *class8Window;
 
 PastResult *pastResultWindow1;
 
@@ -115,6 +119,7 @@ void addStudents::on_createExam_clicked()
     QMessageBox msg;
 
     QString examtype = ui->examType->text();
+    QString total = ui->totalMarks->text();
 
     if(examtype.isEmpty())
     {
@@ -142,10 +147,10 @@ void addStudents::on_createExam_clicked()
     QStringList lines = fileContent.split('\n');
     for (const QString &line : lines) {
         QStringList fields = line.split(',');
-        if (fields.size() == 8) {
+        if (fields.size() == 10) {
             qDebug() << "Inserting:" << fields.join(", ");  // Debug output to check values
 
-            query.prepare("INSERT INTO questions (class_code, question_code, question, option1, option2, option3, option4, correct) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            query.prepare("INSERT INTO questions (exam_type, total_marks, class_code, subject_code, question, option1, option2, option3, option4, correct) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             query.addBindValue(fields[0]);
             query.addBindValue(fields[1]);
             query.addBindValue(fields[2]);
@@ -154,6 +159,8 @@ void addStudents::on_createExam_clicked()
             query.addBindValue(fields[5]);
             query.addBindValue(fields[6]);
             query.addBindValue(fields[7]);
+            query.addBindValue(fields[8]);
+            query.addBindValue(fields[9]);
 
             if (!query.exec()) {
                 QMessageBox::warning(this, "Database Error", "Failed to insert data: " + query.lastError().text());
@@ -163,7 +170,6 @@ void addStudents::on_createExam_clicked()
             qDebug() << "Skipping line due to incorrect field count:" << line;
         }
     }
-    pastResultWindow1 = new PastResult(examtype,"a","b","c","d",this);
     msg.setText("Exam started successfully!");
     msg.setStandardButtons(QMessageBox::Ok);
     if(QMessageBox::Accepted)

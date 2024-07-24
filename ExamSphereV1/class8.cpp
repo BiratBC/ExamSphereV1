@@ -11,12 +11,10 @@
 #include "student.h"
 #include <QTimer>
 #include <QDate>
-#include "checkresult.h"
 
 
 using namespace std;
 Student *studentDashboard1;
-CheckResult *resultWindow2;
 
 class8::class8(const QString &id, const QString &fname, const QString &lname, const QString &email, const QDate &dob,
                const QString &batch, const QString &grade, QWidget *parent)
@@ -45,12 +43,32 @@ class8::class8(const QString &id, const QString &fname, const QString &lname, co
     ui->subject->addItem("Maths");
     ui->subject->addItem("Computer");
     ui->subject->addItem("Science");
-
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    QMessageBox messageIntro;
+    messageIntro.resize(800,800);
+    messageIntro.setStyleSheet(
+        "QMessageBox {"
+        "    background-color: #f0f0f0;"
+        "    color: #333333;"
+        "}"
+        );
+    /*QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("C:/Users/khatr/OneDrive/Documents/qtDatabase/admin.db");
     if (!db.open()) {
         qDebug() << "Error: unable to connect to database";
         return;
+    }*/
+    QSqlDatabase dab = QSqlDatabase::addDatabase("QMYSQL");
+    dab.setHostName("localhost");
+    dab.setUserName("root");
+    dab.setPassword("");
+    dab.setDatabaseName("examsphere");
+    dab.setPort(3377);
+    dab.open();
+    if (!dab.open()) {
+        qDebug() << "Error: " << dab.lastError().text();
+        messageIntro.setWindowTitle("Database Error");
+        messageIntro.setText("Failed to connect to database: " + dab.lastError().text());
+        messageIntro.exec();
     }
 
     timer = new QTimer(this);
@@ -210,6 +228,20 @@ void class8::checkAnswer()
 
 void class8::on_nextButton_clicked()
 {
+    QString sub = ui->subject->currentText();
+    QSqlQuery qry1(db);
+    if (!qry1.exec("SELECT exam_type, total_marks FROM questions WHERE subject_code = '1001' AND class_code = '8'")) {
+        qDebug() << "Error fetching exam details:" << qry1.lastError();
+        return;
+    }
+
+    QString exam_Type;
+    QString fullMarks;
+    if (qry1.next()) {
+        exam_Type = qry1.value("exam_type").toString();
+        fullMarks = qry1.value("total_marks").toString();
+    }
+
     checkAnswer();
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.size()) {
@@ -225,16 +257,25 @@ void class8::on_nextButton_clicked()
         ui->nextButton->hide();
         ui->prevButton->hide();
         ui->homeButton->show();
+
         QSqlQuery qry(db);
         qry.prepare("INSERT INTO results(exam_type, id, grade, subject, total_marks, obtained_marks)"
                     "VALUES(:exam_type, :id, :grade, :subject, :total_marks, :obtained_marks)");
-        qry.bindValue(":exam_type", studentId);
+
+        qry.bindValue(":exam_type", exam_Type);
         qry.bindValue(":id", studentId);
         qry.bindValue(":grade", studentGrade);
-        //qry.bindValue(":subject", studentId);
-        qry.bindValue(":total_marks", studentId);
-        qry.bindValue(":obtained_marks",QString::number(scoreRec));
-       // resultWindow2 = new CheckResult(QString::number(scoreRec),this);
+        qry.bindValue(":subject", sub);
+        qry.bindValue(":total_marks", fullMarks);
+        qry.bindValue(":obtained_marks", QString::number(scoreRec));
+
+        qDebug() << "Executing query:" << qry.executedQuery();
+        qDebug() << "Bound values:" << exam_Type << studentId << studentGrade << sub << fullMarks << scoreRec;
+
+        if (!qry.exec()) {
+            QMessageBox::warning(this, "Not Recorded", "Failed to record data of this examination");
+            qDebug() << "Error: " << qry.lastError();
+        }
 
     }
 }

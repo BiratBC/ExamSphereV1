@@ -22,6 +22,7 @@ private slots:
 
 private:
     Ui::PastResult *ui;
+
 };
 
 #endif // PASTRESULT_H

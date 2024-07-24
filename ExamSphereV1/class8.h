@@ -18,8 +18,8 @@ class class8 : public QDialog
 
 public:
     class8(){}
-    explicit class8(const QString &id, const QString &fname, const QString &lname, const QString &email,const QDate &dob, const QString &batch,
-                    const QString &grade, QWidget *parent = nullptr);
+    explicit class8(const QString &id, const QString &fname, const QString &lname, const QString &email, const QDate &dob,
+                    const QString &batch, const QString &grade, QWidget *parent = nullptr);
     ~class8();
 
 private slots:
@@ -48,6 +48,9 @@ private:
     QDate studentDOB;
     QString studentBatch;
     QString studentGrade;
+
+    QString examType;
+    QString totalMarks;
 
     int currentQuestionIndex;
     int scoreRec;
