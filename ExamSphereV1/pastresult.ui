@@ -68,11 +68,6 @@
         </column>
         <column>
          <property name="text">
-          <string>subject</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
           <string>total_marks</string>
          </property>
         </column>
