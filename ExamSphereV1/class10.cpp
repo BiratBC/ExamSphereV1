@@ -28,6 +28,7 @@ class10::class10(const QString &id, const QString &fname, const QString &lname, 
     , studentGrade(grade)
     ,currentQuestionIndex(0)
     ,scoreRec(0)
+    ,timeRemaining(100)
 {
     ui->setupUi(this);
     this->setWindowTitle("Class 10");
@@ -48,6 +49,8 @@ class10::class10(const QString &id, const QString &fname, const QString &lname, 
         qDebug() << "Error: unable to connect to database";
         return;
     }
+    timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &class10::updateTimer);
 
 }
 
@@ -87,6 +90,7 @@ void class10::on_start_clicked()
         questions = getRandomQuestions(questions, 4);
 
         loadQuestion();
+        timer->start(1000);
     }
     else if (a == 1)
     {
@@ -112,6 +116,7 @@ void class10::on_start_clicked()
         questions = getRandomQuestions(questions, 4);
 
         loadQuestion();
+        timer->start(1000);
     }
     else
     {
@@ -138,6 +143,7 @@ void class10::on_start_clicked()
         questions = getRandomQuestions(questions, 4);
 
         loadQuestion();
+        timer->start(1000);
     }
 
 }
@@ -202,6 +208,8 @@ void class10::on_nextButton_clicked()
     if (currentQuestionIndex < questions.size()) {
         loadQuestion();
     } else {
+        timer->stop();
+        ui->timerLabel->setText(QString("Time Remaining: 00:00"));
         ui->questionLabel->setText(QString("Congratulations!!! You got %1").arg(scoreRec));
         ui->option1->hide();
         ui->option2->hide();
@@ -212,6 +220,25 @@ void class10::on_nextButton_clicked()
         ui->homeButton->show();
     }
 }
+void class10::updateTimer() {
+    timeRemaining--;
+    int minutes = timeRemaining / 60;
+    int seconds = timeRemaining % 60;
+    ui->timerLabel->setText(QString("Time Remaining: %1:%2").arg(minutes, 2, 10, QChar('0')).arg(seconds, 2, 10, QChar('0')));
+
+    if (timeRemaining <= 0) {
+        timerTimeout();
+    }
+}
+
+void class10::timerTimeout() {
+    timer->stop();
+    checkAnswer();
+    ui->questionLabel->setText(QString("Time's up! You got %1").arg(scoreRec));
+    ui->option1->hide();
+    ui->option2->hide();
+}
+
 
 
 void class10::on_homeButton_clicked()
