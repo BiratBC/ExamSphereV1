@@ -11,12 +11,10 @@
 #include "student.h"
 #include <QTimer>
 #include <QDate>
-#include "checkresult.h"
-
 
 using namespace std;
 Student *studentDashboard1;
-CheckResult *resultWindow2;
+
 
 class8::class8(const QString &id, const QString &fname, const QString &lname, const QString &email, const QDate &dob,
                const QString &batch, const QString &grade, QWidget *parent)
@@ -225,8 +223,6 @@ void class8::on_nextButton_clicked()
         ui->nextButton->hide();
         ui->prevButton->hide();
         ui->homeButton->show();
-        resultWindow2 = new CheckResult(QString::number(scoreRec),this);
-
     }
 }
 

@@ -7,8 +7,7 @@
 #include <QtSql/QSqlQuery>
 #include <QDialog>
 #include <studentlogin.h>
-#include "checkresult.h"
-CheckResult *resultWindow1;
+
 ExamSphere *logoutWindow;
 
 //Welcome *welcomeWindow;
@@ -137,7 +136,6 @@ void Student::on_changePassword_clicked()
 
 void Student::on_prevResult_clicked()
 {
-    resultWindow1 = new CheckResult("default",this);
-    resultWindow1->showMaximized();
+
 }
 
