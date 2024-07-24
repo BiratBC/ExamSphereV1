@@ -1,6 +1,9 @@
 #include "examiner.h"
 #include "ui_examiner.h"
 #include "examinerlogin.h"
+#include "checkresult.h"
+
+CheckResult *resultWindow;
 
 ExaminerLogin *examinerLoginWindow;
 
@@ -18,7 +21,9 @@ examiner::~examiner()
 
 void examiner::on_pushButton_clicked()
 {
-
+    close();
+    resultWindow = new CheckResult("default",this);
+    resultWindow->showMaximized();
 }
 
 

@@ -14,6 +14,7 @@ CONFIG += c++17
 SOURCES += \
     addstudents.cpp \
     changepassword.cpp \
+    checkresult.cpp \
     class10.cpp \
     class8.cpp \
     class9.cpp \
@@ -30,6 +31,7 @@ SOURCES += \
 HEADERS += \
     addstudents.h \
     changepassword.h \
+    checkresult.h \
     class10.h \
     class8.h \
     class9.h \
@@ -45,6 +47,7 @@ HEADERS += \
 FORMS += \
     addstudents.ui \
     changepassword.ui \
+    checkresult.ui \
     class10.ui \
     class8.ui \
     class9.ui \

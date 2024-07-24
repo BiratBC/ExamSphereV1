@@ -111,6 +111,13 @@ void addStudents::on_pushButton_3_clicked()
 {
     QMessageBox msg;
 
+    QString examtype = ui->examType->text();
+
+    if(examtype.isEmpty())
+    {
+        QMessageBox::warning(this,"Exam Type","Please fill the exam type field");
+        return;
+    }
 
     if (filePath.isEmpty()) {
         QMessageBox::warning(this, "No File Selected", "Please select a file to upload.");
