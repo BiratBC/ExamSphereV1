@@ -24,6 +24,8 @@ CheckResult::CheckResult(const QString &marks, QWidget* parent)
     ui->tableWidget->setColumnWidth(1, 200);
     ui->tableWidget->setColumnWidth(2, 200);
     ui->tableWidget->setColumnWidth(3, 200);
+    ui->tableWidget->setColumnWidth(4, 200);
+    ui->tableWidget->setColumnWidth(5, 200);
     QMessageBox messageIntro;
     messageIntro.resize(800,800);
     messageIntro.setStyleSheet(

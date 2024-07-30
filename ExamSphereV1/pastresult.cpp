@@ -5,10 +5,21 @@
 #include <QSqlQuery>
 #include <QDebug>
 #include <QSqlError>
+#include "student.h"
 
-PastResult::PastResult(const QString &exam_type, const QString &id, const QString &grade, const QString &total, const QString &obtained, QWidget *parent)
+Student *studentWindow5;
+
+PastResult::PastResult(const QString &id, const QString &fname, const QString &lname, const QString &email,const QDate &dob, const QString &batch,
+                       const QString &grade, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::PastResult)
+    ,studentId(id)
+    ,studentFName(fname)
+    ,studentLName(lname)
+    ,studentEmail(email)
+    ,studentDOB(dob)
+    ,studentBatch(batch)
+    ,studentGrade(grade)
 {
     ui->setupUi(this);
     this->setWindowTitle("Check Result");
@@ -20,6 +31,8 @@ PastResult::PastResult(const QString &exam_type, const QString &id, const QStrin
     ui->tableWidget->setColumnWidth(1, 200);
     ui->tableWidget->setColumnWidth(2, 200);
     ui->tableWidget->setColumnWidth(3, 200);
+    ui->tableWidget->setColumnWidth(4, 200);
+    ui->tableWidget->setColumnWidth(5, 200);
     QMessageBox messageIntro;
     messageIntro.resize(800,800);
     messageIntro.setStyleSheet(
@@ -50,13 +63,18 @@ PastResult::~PastResult()
 }
 void PastResult::on_checkResult_clicked()
 {
-    int b = ui->subject->currentIndex();
 
+    int b = ui->subject->currentIndex();
+    QString gradeTable = studentGrade;
+    QString idTable = studentId;
     if(b == 0)
         {
             QSqlDatabase dab = QSqlDatabase::database();
             QSqlQuery Query_Get_Data(dab);
-            Query_Get_Data.prepare("SELECT * from results WHERE grade = '8' AND subject = 'Maths'");
+            Query_Get_Data.prepare("SELECT * FROM results WHERE grade = :grade AND subject = 'Maths' AND id = :id");
+            Query_Get_Data.bindValue(":grade", gradeTable);
+            Query_Get_Data.bindValue(":id", idTable);
+
             if(Query_Get_Data.exec())
             {
                 int RowNum = 0;
@@ -70,7 +88,7 @@ void PastResult::on_checkResult_clicked()
                     ui->tableWidget->setItem(RowNum,3,new QTableWidgetItem(QString(Query_Get_Data.value("total_marks").toString())));
                     ui->tableWidget->setItem(RowNum,3,new QTableWidgetItem(QString(Query_Get_Data.value("obtained_marks").toString())));
                     RowNum = RowNum +1;
-                    // qDebug() <<Query_Get_Data.value("id").toString()
+                    //qDebug() <<Query_Get_Data.value("id").toString();
                 }
             }
         }
@@ -78,7 +96,10 @@ void PastResult::on_checkResult_clicked()
         {
             QSqlDatabase dab = QSqlDatabase::database();
             QSqlQuery Query_Get_Data(dab);
-            Query_Get_Data.prepare("SELECT * from results WHERE grade = '8' AND subject = 'Computer'");
+            Query_Get_Data.prepare("SELECT * FROM results WHERE grade = :grade AND subject = 'Computer' AND id = :id");
+            Query_Get_Data.bindValue(":grade", gradeTable);
+            Query_Get_Data.bindValue(":id", idTable);
+
             if(Query_Get_Data.exec())
             {
                 int RowNum = 0;
@@ -92,7 +113,7 @@ void PastResult::on_checkResult_clicked()
                     ui->tableWidget->setItem(RowNum,3,new QTableWidgetItem(QString(Query_Get_Data.value("total_marks").toString())));
                     ui->tableWidget->setItem(RowNum,3,new QTableWidgetItem(QString(Query_Get_Data.value("obtained_marks").toString())));
                     RowNum = RowNum +1;
-                    // qDebug() <<Query_Get_Data.value("id").toString()
+                     //qDebug() <<Query_Get_Data.value("id").toString();
                 }
             }
         }
@@ -100,7 +121,10 @@ void PastResult::on_checkResult_clicked()
         {
             QSqlDatabase dab = QSqlDatabase::database();
             QSqlQuery Query_Get_Data(dab);
-            Query_Get_Data.prepare("SELECT * from results WHERE grade = '8' AND subject = 'Science'");
+            Query_Get_Data.prepare("SELECT * FROM results WHERE grade = :grade AND subject = 'Science' AND id = :id");
+            Query_Get_Data.bindValue(":grade", gradeTable);
+            Query_Get_Data.bindValue(":id", idTable);
+
             if(Query_Get_Data.exec())
             {
                 int RowNum = 0;
@@ -114,9 +138,17 @@ void PastResult::on_checkResult_clicked()
                     ui->tableWidget->setItem(RowNum,3,new QTableWidgetItem(QString(Query_Get_Data.value("total_marks").toString())));
                     ui->tableWidget->setItem(RowNum,3,new QTableWidgetItem(QString(Query_Get_Data.value("obtained_marks").toString())));
                     RowNum = RowNum +1;
-                    // qDebug() <<Query_Get_Data.value("id").toString()
+                    //qDebug() <<Query_Get_Data.value("id").toString();
                 }
             }
         }
 
 }
+
+void PastResult::on_pushButton_clicked()
+{
+    close();
+    studentWindow5 = new Student(studentId,studentFName,studentLName,studentEmail,studentDOB,studentBatch,studentGrade,this);
+    studentWindow5->showMaximized();
+}
+

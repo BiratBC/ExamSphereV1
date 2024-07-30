@@ -140,7 +140,7 @@ void Student::on_changePassword_clicked()
 void Student::on_prevResult_clicked()
 {
     close();
-    pastResultWindow = new PastResult("a",studentId,studentGrade,"b","c",this);
+    pastResultWindow = new PastResult(studentId,studentFName,studentLName,studentEmail,studentDOB,studentBatch,studentGrade,this);
     pastResultWindow->showMaximized();
 }
 
