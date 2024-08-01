@@ -6,9 +6,6 @@
 #include <QtSql>
 #include <QFileInfo>
 #include <QSqlDatabase>
-
-#include <QMainWindow>
-#include "class8.h"
 #include "studentregistration.h"
 #include "student.h"
 

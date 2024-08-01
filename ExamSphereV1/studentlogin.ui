@@ -6,19 +6,46 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1255</width>
-    <height>786</height>
+    <width>1317</width>
+    <height>847</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>ExamSphere</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgba(0,0,174,255)
+   <string notr="true">*{
+	background-color: rgba(33,35,50,255);
+font-family:Ubuntu Medium;
+}
 
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">*{
+	background-color: rgba(33,35,50,255);
+font-family:Ubuntu Medium;
+}
+QLineEdit
+{
+border: 1px solid;
+border-color: rgba(33,35,50,255);
+border-radius:10px;
+height:45px;
+color:rgba(33,35,50,255);
+}
+QPushButton
+{
+background-color: #a7abaa;
+color: rgba(0,0,173,255);
+border-radius: 12px; 
+border: 1px solid;
+border-color: rgba(33,35,50,255);
+height:50px;
+width:100px;
+}</string>
+   </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="3">
      <spacer name="horizontalSpacer_6">
@@ -39,7 +66,18 @@
     <item row="0" column="1">
      <widget class="QGroupBox" name="groupBox">
       <property name="styleSheet">
-       <string notr="true">background-color: rgba(0,0,174,255);</string>
+       <string notr="true">*{
+	background-color: rgba(42,45,62,255);
+font-family:Ubuntu Medium;
+}
+QGroupBox
+{
+margin-top:15%;
+margin-bottom:15%;
+	border:1px solid;
+	border-color: rgb(42, 45, 62);
+border-radius:20px;
+}</string>
       </property>
       <property name="title">
        <string/>
@@ -64,7 +102,7 @@
            </property>
            <property name="font">
             <font>
-             <family>Ac437 IBM EGA 8x8</family>
+             <family>Ubuntu 7</family>
              <pointsize>50</pointsize>
             </font>
            </property>
@@ -98,15 +136,28 @@
         <widget class="QGroupBox" name="Login">
          <property name="font">
           <font>
-           <family>Ac437 IBM EGA 8x8</family>
+           <family>Ubuntu 7</family>
            <pointsize>30</pointsize>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">color:#fff;</string>
+          <string notr="true">*{
+color:#fff;
+}
+QGroupBox
+{
+margin-left:150px;
+margin-right:150px;
+	border:3px solid;
+	border-color: rgba(33,35,50,255);
+border-radius:20px;
+}</string>
          </property>
          <property name="title">
           <string>Login</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
          <layout class="QGridLayout" name="gridLayout_3">
           <item row="2" column="1">
@@ -129,7 +180,7 @@
                  <widget class="QLabel" name="id">
                   <property name="font">
                    <font>
-                    <family>Ac437 IBM EGA 8x8</family>
+                    <family>Ubuntu 7</family>
                     <pointsize>18</pointsize>
                    </font>
                   </property>
@@ -158,17 +209,16 @@
                  <widget class="QLineEdit" name="idLine">
                   <property name="font">
                    <font>
-                    <family>Ac437 IBM CGA</family>
+                    <family>Ubuntu 7</family>
                     <pointsize>16</pointsize>
                    </font>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">border: 1px solid;
-border-color: rgb(255, 111, 42);
-border-radius:5px;
-height:45px;
-background-color: rgb(255, 255, 255);
-color:#0000ad;</string>
+                   <string notr="true">background-color: rgb(255, 255, 255);
+color:rgba(33,35,50,255);</string>
+                  </property>
+                  <property name="placeholderText">
+                   <string>ID</string>
                   </property>
                  </widget>
                 </item>
@@ -203,7 +253,7 @@ color:#0000ad;</string>
                  <widget class="QLabel" name="password">
                   <property name="font">
                    <font>
-                    <family>Ac437 IBM EGA 8x8</family>
+                    <family>Ubuntu 7</family>
                     <pointsize>18</pointsize>
                    </font>
                   </property>
@@ -232,20 +282,19 @@ color:#0000ad;</string>
                  <widget class="QLineEdit" name="passwordLine">
                   <property name="font">
                    <font>
-                    <family>Ac437 IBM CGA</family>
+                    <family>Ubuntu 7</family>
                     <pointsize>16</pointsize>
                    </font>
                   </property>
                   <property name="styleSheet">
                    <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid;
-border-color: rgb(255, 111, 42);
-border-radius:5px;
-height:45px;
-color:#0000ad;</string>
+color:rgba(33,35,50,255);</string>
                   </property>
                   <property name="echoMode">
                    <enum>QLineEdit::Password</enum>
+                  </property>
+                  <property name="placeholderText">
+                   <string>Password</string>
                   </property>
                  </widget>
                 </item>
@@ -273,7 +322,7 @@ color:#0000ad;</string>
              <widget class="QPushButton" name="pushButton">
               <property name="font">
                <font>
-                <family>Ac437 IBM EGA 8x8</family>
+                <family>Ubuntu 7</family>
                 <pointsize>16</pointsize>
                </font>
               </property>
@@ -282,10 +331,9 @@ color:#0000ad;</string>
               </property>
               <property name="styleSheet">
                <string notr="true">background-color: #a7abaa;
-color: rgba(0,0,173,255);
+color: rgb(33, 35, 50);
 border-radius: 12px; 
 border: 1px solid;
-border-color: #0000ad;
 height:50px;
 width:100px;</string>
               </property>
@@ -314,7 +362,7 @@ width:100px;</string>
              <widget class="QPushButton" name="pushButton_2">
               <property name="font">
                <font>
-                <family>Ac437 IBM EGA 8x8</family>
+                <family>Ubuntu 7</family>
                 <pointsize>16</pointsize>
                </font>
               </property>
@@ -323,11 +371,11 @@ width:100px;</string>
               </property>
               <property name="styleSheet">
                <string notr="true">background-color: #a7abaa;
-color:rgba(0,0,173,255);
+color: rgb(33, 35, 50);
 border-radius: 12px; 
 border: 1px solid;
-border-color: #0000ad;
-height:50px;</string>
+height:50px;
+width:100px;</string>
               </property>
               <property name="text">
                <string>Go back</string>
@@ -354,7 +402,7 @@ height:50px;</string>
              <widget class="QLabel" name="label_2">
               <property name="font">
                <font>
-                <family>Ac437 IBM EGA 8x8</family>
+                <family>Ubuntu 7</family>
                 <pointsize>14</pointsize>
                </font>
               </property>
@@ -389,7 +437,7 @@ height:50px;</string>
              <widget class="QPushButton" name="pushButton_3">
               <property name="font">
                <font>
-                <family>Ac437 IBM EGA 8x8</family>
+                <family>Ubuntu 7</family>
                 <pointsize>16</pointsize>
                </font>
               </property>
@@ -397,12 +445,12 @@ height:50px;</string>
                <cursorShape>PointingHandCursor</cursorShape>
               </property>
               <property name="styleSheet">
-               <string notr="true">background-color:rgba(167,171,170,255);
+               <string notr="true">background-color: #a7abaa;
+color: rgb(33, 35, 50);
 border-radius: 12px; 
 border: 1px solid;
-
-color:rgba(0,0,173,255);
-height:50px;</string>
+height:50px;
+width:100px;</string>
               </property>
               <property name="text">
                <string>Register Now</string>
@@ -514,8 +562,8 @@ height:50px;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1255</width>
-     <height>26</height>
+     <width>1317</width>
+     <height>24</height>
     </rect>
    </property>
   </widget>

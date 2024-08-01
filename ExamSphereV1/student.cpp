@@ -123,12 +123,6 @@ void Student::on_pushButton_4_clicked()
 }
 
 
-void Student::on_pushButton_2_clicked()
-{
-
-}
-
-
 void Student::on_changePassword_clicked()
 {
     close();

@@ -175,7 +175,10 @@ void class8::on_start_clicked()
 
 void class8::on_prevButton_clicked()
 {
-
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        loadQuestion();
+    }
 }
 QVector<QVariantMap> class8::getRandomQuestions(QVector<QVariantMap> questions, int numberOfQuestions) {
     random_device rd;
