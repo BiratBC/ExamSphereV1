@@ -5,7 +5,7 @@
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlError>
 #include <QtSql/QSqlQuery>
-namespace Ui {//namespace for ui makes more readable.....
+namespace Ui {
 class addStudents;
 }
 

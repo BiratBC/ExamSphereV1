@@ -118,15 +118,6 @@ void addStudents::on_createExam_clicked()
 {
     QMessageBox msg;
 
-    QString examtype = ui->examType->text();
-    QString total = ui->totalMarks->text();
-
-    if(examtype.isEmpty())
-    {
-        QMessageBox::warning(this,"Exam Type","Please fill the exam type field");
-        return;
-    }
-
     if (filePath.isEmpty()) {
         QMessageBox::warning(this, "No File Selected", "Please select a file to upload.");
         return;

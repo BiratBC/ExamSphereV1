@@ -13,11 +13,55 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QComboBox
+{
+border: 1px solid;
+border-radius: 12px; 
+border-color: rgba(33,35,50,255);
+color:#0000ad;
+	background-color: rgb(255, 255, 255);
+}
+*{
+	background-color: rgba(33,35,50,255);
+font-family:Ubuntu;
+color:#fff;
+font-size:16px;
+
+}
+QLineEdit
+{
+height:30px;
+border: 1px solid;
+border-color: rgba(33,35,50,255);
+border-radius:10px;
+color:rgba(33,35,50,255);
+background-color: rgb(255, 255, 255);
+}
+QPushButton
+{
+background-color: #a7abaa;
+color: rgba(0,0,173,255);
+border-radius: 12px; 
+border: 1px solid;
+border-color: rgba(33,35,50,255);
+height:40px;
+width:100px;
+}
+QGroupBox
+{
+	width:500px;
+}
+QCheckBox
+{
+margin:0px;
+}</string>
+  </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout_11">
      <item>
-      <widget class="QLabel" name="label_12">
+      <widget class="QLabel" name="logo3">
        <property name="text">
         <string>TextLabel</string>
        </property>
@@ -33,9 +77,12 @@
        </property>
        <property name="font">
         <font>
-         <family>Ubuntu Medium</family>
-         <pointsize>25</pointsize>
+         <family>Ubuntu</family>
+         <pointsize>-1</pointsize>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size:60px;</string>
        </property>
        <property name="text">
         <string>Teacher Registration</string>
@@ -65,6 +112,9 @@
    </item>
    <item row="2" column="0">
     <widget class="QGroupBox" name="groupBox">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
      <property name="title">
       <string>Sign Up</string>
      </property>
@@ -77,41 +127,94 @@
            <layout class="QVBoxLayout" name="verticalLayout">
             <item>
              <widget class="QLabel" name="label_8">
+              <property name="styleSheet">
+               <string notr="true">margin:0px;</string>
+              </property>
               <property name="text">
                <string>First Name*</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_fn"/>
+             <widget class="QLineEdit" name="lineEdit_fn">
+              <property name="styleSheet">
+               <string notr="true">margin:0px;</string>
+              </property>
+             </widget>
             </item>
            </layout>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_7">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Preferred</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_2">
             <item>
              <widget class="QLabel" name="label_9">
+              <property name="styleSheet">
+               <string notr="true">margin:0px;</string>
+              </property>
               <property name="text">
                <string>Middle Name</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_mn"/>
+             <widget class="QLineEdit" name="lineEdit_mn">
+              <property name="styleSheet">
+               <string notr="true">margin:0px;</string>
+              </property>
+             </widget>
             </item>
            </layout>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_8">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Preferred</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_3">
             <item>
              <widget class="QLabel" name="label_10">
+              <property name="styleSheet">
+               <string notr="true">margin:0px;</string>
+              </property>
               <property name="text">
                <string>Last Name</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_ln"/>
+             <widget class="QLineEdit" name="lineEdit_ln">
+              <property name="styleSheet">
+               <string notr="true">margin:0px;</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -143,6 +246,22 @@
            </widget>
           </item>
           <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Preferred</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
            <widget class="QLineEdit" name="lineEdit_id"/>
           </item>
          </layout>
@@ -168,7 +287,7 @@
           <item>
            <widget class="QLabel" name="label_11">
             <property name="text">
-             <string>Grade*</string>
+             <string>Grade*(Only check the box you teach!)</string>
             </property>
            </widget>
           </item>
@@ -243,6 +362,22 @@
            </widget>
           </item>
           <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Preferred</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
            <widget class="QLineEdit" name="lineEdit_email"/>
           </item>
          </layout>
@@ -273,6 +408,22 @@
            </widget>
           </item>
           <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Preferred</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
            <widget class="QLineEdit" name="lineEdit_phn"/>
           </item>
          </layout>
@@ -301,6 +452,22 @@
              <string>Subject Code*</string>
             </property>
            </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Preferred</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
           <item>
            <widget class="QLineEdit" name="lineEdit_sub"/>
@@ -395,6 +562,22 @@
              </widget>
             </item>
             <item>
+             <spacer name="horizontalSpacer_5">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Preferred</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
              <widget class="QLineEdit" name="lineEdit_psd"/>
             </item>
            </layout>
@@ -407,6 +590,22 @@
                <string>Confirm Password</string>
               </property>
              </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_6">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Preferred</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
             </item>
             <item>
              <widget class="QLineEdit" name="lineEdit_cpsd"/>
@@ -433,6 +632,11 @@
         </item>
         <item>
          <widget class="QPushButton" name="register_2">
+          <property name="styleSheet">
+           <string notr="true">margin:0px 100px 0px 100px;
+color: rgb(0, 0, 0);
+font-size:20px;</string>
+          </property>
           <property name="text">
            <string>Register</string>
           </property>
@@ -465,6 +669,10 @@
           </item>
           <item>
            <widget class="QPushButton" name="login">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+font-size:20px;</string>
+            </property>
             <property name="text">
              <string>Login</string>
             </property>

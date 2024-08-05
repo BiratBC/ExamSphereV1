@@ -14,27 +14,42 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">*{
-	background-color: rgb(0, 0, 173);
-font-family:AcPlus IBM CGA;
+   <string notr="true">QComboBox
+{
+border: 1px solid;
+border-radius: 12px; 
+border-color: rgba(33,35,50,255);
+color:#0000ad;
+	background-color: rgb(255, 255, 255);
+}
+*{
+	background-color: rgba(33,35,50,255);
+font-family:Ubuntu;
 color:#fff;
 }
 QLineEdit
-{	
-color:#0000ad;
-	background-color: rgb(255, 255, 255);
-}
-QComboBox
 {
-color:#0000ad;
-	background-color: rgb(255, 255, 255);
+height:40px;
+border: 1px solid;
+border-color: rgba(33,35,50,255);
+border-radius:10px;
+color:rgba(33,35,50,255);
+background-color: rgb(255, 255, 255);
 }
 QPushButton
 {
-	background-color: rgb(167, 171, 170);
-	color:#0000ad;
+background-color: #a7abaa;
+color: rgba(0,0,173,255);
+border-radius: 12px; 
+border: 1px solid;
+border-color: rgba(33,35,50,255);
+height:40px;
+width:100px;
 }
-</string>
+QGroupBox
+{
+	width:500px;
+}</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
@@ -67,7 +82,7 @@ QPushButton
             </property>
             <property name="font">
              <font>
-              <family>AcPlus IBM CGA</family>
+              <family>Ubuntu</family>
               <pointsize>50</pointsize>
              </font>
             </property>
@@ -100,7 +115,7 @@ QPushButton
            <widget class="QGroupBox" name="groupBox_3">
             <property name="font">
              <font>
-              <family>AcPlus IBM CGA</family>
+              <family>Ubuntu</family>
               <pointsize>35</pointsize>
              </font>
             </property>
@@ -114,7 +129,7 @@ QPushButton
                 <widget class="QLabel" name="label_13">
                  <property name="font">
                   <font>
-                   <family>AcPlus IBM CGA</family>
+                   <family>Ubuntu</family>
                    <pointsize>14</pointsize>
                   </font>
                  </property>
@@ -127,7 +142,7 @@ QPushButton
                 <widget class="QLabel" name="idLabel">
                  <property name="font">
                   <font>
-                   <family>AcPlus IBM CGA</family>
+                   <family>Ubuntu</family>
                    <pointsize>14</pointsize>
                   </font>
                  </property>
@@ -160,7 +175,7 @@ QPushButton
                 <widget class="QLabel" name="label">
                  <property name="font">
                   <font>
-                   <family>AcPlus IBM CGA</family>
+                   <family>Ubuntu</family>
                    <pointsize>14</pointsize>
                   </font>
                  </property>
@@ -189,7 +204,7 @@ QPushButton
                 <widget class="QLabel" name="FnameLabel">
                  <property name="font">
                   <font>
-                   <family>AcPlus IBM CGA</family>
+                   <family>Ubuntu</family>
                    <pointsize>14</pointsize>
                   </font>
                  </property>
@@ -205,7 +220,7 @@ QPushButton
                 <widget class="QLabel" name="LnameLabel">
                  <property name="font">
                   <font>
-                   <family>AcPlus IBM CGA</family>
+                   <family>Ubuntu</family>
                    <pointsize>14</pointsize>
                   </font>
                  </property>
@@ -241,7 +256,7 @@ QPushButton
                 <widget class="QLabel" name="label_4">
                  <property name="font">
                   <font>
-                   <family>AcPlus IBM CGA</family>
+                   <family>Ubuntu</family>
                    <pointsize>14</pointsize>
                   </font>
                  </property>
@@ -254,7 +269,7 @@ QPushButton
                 <widget class="QLabel" name="emailLabel">
                  <property name="font">
                   <font>
-                   <family>AcPlus IBM CGA</family>
+                   <family>Ubuntu</family>
                    <pointsize>14</pointsize>
                   </font>
                  </property>
@@ -287,7 +302,7 @@ QPushButton
                 <widget class="QLabel" name="label_8">
                  <property name="font">
                   <font>
-                   <family>AcPlus IBM CGA</family>
+                   <family>Ubuntu</family>
                    <pointsize>14</pointsize>
                   </font>
                  </property>
@@ -300,7 +315,7 @@ QPushButton
                 <widget class="QLabel" name="batchLabel">
                  <property name="font">
                   <font>
-                   <family>AcPlus IBM CGA</family>
+                   <family>Ubuntu</family>
                    <pointsize>14</pointsize>
                   </font>
                  </property>
@@ -333,7 +348,7 @@ QPushButton
                 <widget class="QLabel" name="label_10">
                  <property name="font">
                   <font>
-                   <family>AcPlus IBM CGA</family>
+                   <family>Ubuntu</family>
                    <pointsize>14</pointsize>
                   </font>
                  </property>
@@ -346,7 +361,7 @@ QPushButton
                 <widget class="QLabel" name="gradeLabel">
                  <property name="font">
                   <font>
-                   <family>AcPlus IBM CGA</family>
+                   <family>Ubuntu</family>
                    <pointsize>14</pointsize>
                   </font>
                  </property>
@@ -379,7 +394,7 @@ QPushButton
                 <widget class="QLabel" name="label_12">
                  <property name="font">
                   <font>
-                   <family>AcPlus IBM CGA</family>
+                   <family>Ubuntu</family>
                    <pointsize>14</pointsize>
                   </font>
                  </property>
@@ -392,7 +407,7 @@ QPushButton
                 <widget class="QLabel" name="dobLabel">
                  <property name="font">
                   <font>
-                   <family>AcPlus IBM CGA</family>
+                   <family>Ubuntu</family>
                    <pointsize>14</pointsize>
                   </font>
                  </property>
@@ -426,7 +441,7 @@ QPushButton
            <widget class="QGroupBox" name="groupBox_2">
             <property name="font">
              <font>
-              <family>AcPlus IBM CGA</family>
+              <family>Ubuntu</family>
               <pointsize>35</pointsize>
              </font>
             </property>
@@ -462,7 +477,7 @@ QPushButton
                  </property>
                  <property name="font">
                   <font>
-                   <family>AcPlus IBM CGA</family>
+                   <family>Ubuntu</family>
                    <pointsize>20</pointsize>
                   </font>
                  </property>
@@ -470,7 +485,7 @@ QPushButton
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true"/>
+                  <string notr="true">color: rgba(33,35,50,255);</string>
                  </property>
                  <property name="text">
                   <string>Enter Exam</string>
@@ -503,7 +518,7 @@ QPushButton
                  </property>
                  <property name="font">
                   <font>
-                   <family>AcPlus IBM CGA</family>
+                   <family>Ubuntu</family>
                    <pointsize>20</pointsize>
                   </font>
                  </property>
@@ -511,7 +526,7 @@ QPushButton
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true"/>
+                  <string notr="true">color: rgba(33,35,50,255);</string>
                  </property>
                  <property name="text">
                   <string>Change Password</string>
@@ -538,12 +553,15 @@ QPushButton
                 <widget class="QPushButton" name="prevResult">
                  <property name="font">
                   <font>
-                   <family>AcPlus IBM CGA</family>
+                   <family>Ubuntu</family>
                    <pointsize>20</pointsize>
                   </font>
                  </property>
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgba(33,35,50,255);</string>
                  </property>
                  <property name="text">
                   <string>Check Previous Results</string>
@@ -570,12 +588,15 @@ QPushButton
                 <widget class="QPushButton" name="pushButton_4">
                  <property name="font">
                   <font>
-                   <family>AcPlus IBM CGA</family>
+                   <family>Ubuntu</family>
                    <pointsize>20</pointsize>
                   </font>
                  </property>
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgba(33,35,50,255);</string>
                  </property>
                  <property name="text">
                   <string>Log Out</string>

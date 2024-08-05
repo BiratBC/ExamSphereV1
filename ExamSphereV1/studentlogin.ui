@@ -25,7 +25,7 @@ font-family:Ubuntu Medium;
    <property name="styleSheet">
     <string notr="true">*{
 	background-color: rgba(33,35,50,255);
-font-family:Ubuntu Medium;
+font-family:Ubuntu;
 }
 QLineEdit
 {
@@ -102,9 +102,14 @@ border-radius:20px;
            </property>
            <property name="font">
             <font>
-             <family>Ubuntu 7</family>
+             <family>Ubuntu</family>
              <pointsize>50</pointsize>
+             <italic>false</italic>
+             <bold>false</bold>
             </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font: 50pt &quot;Ubuntu&quot;;</string>
            </property>
            <property name="text">
             <string>&lt;font color = #fff&gt;Student Login Page</string>
@@ -136,18 +141,19 @@ border-radius:20px;
         <widget class="QGroupBox" name="Login">
          <property name="font">
           <font>
-           <family>Ubuntu 7</family>
+           <family>Ubuntu</family>
            <pointsize>30</pointsize>
           </font>
          </property>
          <property name="styleSheet">
           <string notr="true">*{
+font-family:Ubuntu;
 color:#fff;
 }
 QGroupBox
 {
-margin-left:150px;
-margin-right:150px;
+margin-left:250px;
+margin-right:250px;
 	border:3px solid;
 	border-color: rgba(33,35,50,255);
 border-radius:20px;
@@ -180,7 +186,7 @@ border-radius:20px;
                  <widget class="QLabel" name="id">
                   <property name="font">
                    <font>
-                    <family>Ubuntu 7</family>
+                    <family>Ubuntu</family>
                     <pointsize>18</pointsize>
                    </font>
                   </property>
@@ -209,7 +215,7 @@ border-radius:20px;
                  <widget class="QLineEdit" name="idLine">
                   <property name="font">
                    <font>
-                    <family>Ubuntu 7</family>
+                    <family>Ubuntu</family>
                     <pointsize>16</pointsize>
                    </font>
                   </property>
@@ -253,7 +259,7 @@ color:rgba(33,35,50,255);</string>
                  <widget class="QLabel" name="password">
                   <property name="font">
                    <font>
-                    <family>Ubuntu 7</family>
+                    <family>Ubuntu</family>
                     <pointsize>18</pointsize>
                    </font>
                   </property>
@@ -282,7 +288,7 @@ color:rgba(33,35,50,255);</string>
                  <widget class="QLineEdit" name="passwordLine">
                   <property name="font">
                    <font>
-                    <family>Ubuntu 7</family>
+                    <family>Ubuntu</family>
                     <pointsize>16</pointsize>
                    </font>
                   </property>
@@ -322,7 +328,7 @@ color:rgba(33,35,50,255);</string>
              <widget class="QPushButton" name="pushButton">
               <property name="font">
                <font>
-                <family>Ubuntu 7</family>
+                <family>Ubuntu</family>
                 <pointsize>16</pointsize>
                </font>
               </property>
@@ -335,7 +341,9 @@ color: rgb(33, 35, 50);
 border-radius: 12px; 
 border: 1px solid;
 height:50px;
-width:100px;</string>
+width:100px;
+margin-left:100px;
+margin-right:100px;</string>
               </property>
               <property name="text">
                <string>Login</string>
@@ -362,7 +370,7 @@ width:100px;</string>
              <widget class="QPushButton" name="pushButton_2">
               <property name="font">
                <font>
-                <family>Ubuntu 7</family>
+                <family>Ubuntu</family>
                 <pointsize>16</pointsize>
                </font>
               </property>
@@ -375,7 +383,9 @@ color: rgb(33, 35, 50);
 border-radius: 12px; 
 border: 1px solid;
 height:50px;
-width:100px;</string>
+width:100px;
+margin-left:100px;
+margin-right:100px;</string>
               </property>
               <property name="text">
                <string>Go back</string>
@@ -402,7 +412,7 @@ width:100px;</string>
              <widget class="QLabel" name="label_2">
               <property name="font">
                <font>
-                <family>Ubuntu 7</family>
+                <family>Ubuntu</family>
                 <pointsize>14</pointsize>
                </font>
               </property>
@@ -437,7 +447,7 @@ width:100px;</string>
              <widget class="QPushButton" name="pushButton_3">
               <property name="font">
                <font>
-                <family>Ubuntu 7</family>
+                <family>Ubuntu</family>
                 <pointsize>16</pointsize>
                </font>
               </property>
@@ -450,7 +460,9 @@ color: rgb(33, 35, 50);
 border-radius: 12px; 
 border: 1px solid;
 height:50px;
-width:100px;</string>
+width:100px;
+margin-left:100px;
+margin-right:100px;</string>
               </property>
               <property name="text">
                <string>Register Now</string>
@@ -459,15 +471,18 @@ width:100px;</string>
             </item>
            </layout>
           </item>
-          <item row="0" column="1">
-           <spacer name="verticalSpacer_5">
+          <item row="2" column="0">
+           <spacer name="horizontalSpacer">
             <property name="orientation">
-             <enum>Qt::Vertical</enum>
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Preferred</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>20</width>
-              <height>40</height>
+              <width>40</width>
+              <height>20</height>
              </size>
             </property>
            </spacer>
@@ -501,18 +516,15 @@ width:100px;</string>
             </property>
            </spacer>
           </item>
-          <item row="2" column="0">
-           <spacer name="horizontalSpacer">
+          <item row="0" column="1">
+           <spacer name="verticalSpacer_5">
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Expanding</enum>
+             <enum>Qt::Vertical</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>40</width>
-              <height>20</height>
+              <width>20</width>
+              <height>40</height>
              </size>
             </property>
            </spacer>
@@ -523,7 +535,7 @@ width:100px;</string>
              <enum>Qt::Horizontal</enum>
             </property>
             <property name="sizeType">
-             <enum>QSizePolicy::Expanding</enum>
+             <enum>QSizePolicy::Preferred</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>

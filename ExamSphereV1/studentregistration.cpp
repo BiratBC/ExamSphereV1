@@ -5,6 +5,8 @@
 #include <QtSql>
 #include <QSqlDatabase>
 #include <QComboBox>
+#include <QPixmap>
+#include <QFontDatabase>
 
 ExamSphere *loginWindow;
 QSqlDatabase dab;
@@ -58,7 +60,10 @@ bool chkEmail(QString email)
 studentRegistration::studentRegistration(QWidget *parent)
     : QDialog(parent), ui(new Ui::studentRegistration)
 {
+
     ui->setupUi(this);
+    QPixmap logoS(":/rec/assets/logo.png");
+    ui->logo2->setPixmap(logoS.scaled(200,200,Qt::KeepAspectRatio));
     ui->comboBox->addItem("Male");
     ui->comboBox->addItem("Female");
     ui->comboBox->addItem("Others");

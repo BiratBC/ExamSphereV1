@@ -7,12 +7,14 @@
 #include <QtSql/QSqlQuery>
 #include <QApplication>
 
+
 using namespace std;
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Welcome w;
-    w.showMaximized();
+   Welcome w;
+   w.showMaximized();
+
     return a.exec();
 }

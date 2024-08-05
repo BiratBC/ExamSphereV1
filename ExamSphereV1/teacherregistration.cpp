@@ -5,6 +5,8 @@
 #include <QtSql>
 #include <QSqlDatabase>
 #include <QComboBox>
+#include <QPixmap>
+#include <QFontDatabase>
 
 ExaminerLogin *examinerlogin;
 QSqlDatabase dab2;
@@ -61,6 +63,8 @@ teacherRegistration::teacherRegistration(QWidget *parent)
     , ui(new Ui::teacherRegistration)
 {
     ui->setupUi(this);
+    QPixmap logo(":/rec/assets/logo.png");
+    ui->logo3->setPixmap(logo.scaled(200,200,Qt::KeepAspectRatio));
     ui->comboBox->addItem("Male");
     ui->comboBox->addItem("Female");
     ui->comboBox->addItem("Others");

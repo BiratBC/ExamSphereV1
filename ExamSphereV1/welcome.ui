@@ -9,14 +9,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1224</width>
+    <width>1303</width>
     <height>665</height>
    </rect>
   </property>
   <property name="font">
    <font>
-    <family>Ubuntu 7</family>
-    <pointsize>50</pointsize>
+    <family>Ubuntu</family>
    </font>
   </property>
   <property name="cursor">
@@ -28,7 +27,34 @@
   <property name="styleSheet">
    <string notr="true">*{
 	background-color: rgba(33,35,50,255);
-font-family:Ubuntu Medium;
+font-family:Ubuntu;
+
+}
+
+QLineEdit
+{	
+color:#0000ad;
+	background-color: rgb(255, 255, 255);
+height:40px;
+}
+QComboBox
+{
+color:#0000ad;
+	background-color: rgb(255, 255, 255);
+height:30px;
+width:80px;
+}
+QPushButton
+{	
+color:rgba(33,35,50,255);
+	background-color: rgb(167, 171, 170);
+	color:#0000ad;
+  width:100px;
+  height:30px
+}
+QTableWidget
+{
+	color: rgb(255, 255, 255);
 }</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -38,7 +64,7 @@ font-family:Ubuntu Medium;
       <widget class="QGroupBox" name="groupBox_2">
        <property name="font">
         <font>
-         <family>Ubuntu 7</family>
+         <family>Ubuntu</family>
         </font>
        </property>
        <property name="styleSheet">
@@ -63,7 +89,8 @@ margin-bottom:40px;
 label
 {
 font-size:70px;
-}</string>
+}
+</string>
        </property>
        <property name="title">
         <string/>
@@ -104,7 +131,7 @@ margin-bottom:0px;</string>
               </property>
               <property name="font">
                <font>
-                <family>Ubuntu 7</family>
+                <family>Ubuntu</family>
                 <pointsize>-1</pointsize>
                 <bold>false</bold>
                </font>
@@ -115,7 +142,7 @@ margin-right:30%;
 margin-top:0px;
 margin-bottom:0px;
 padding:0px 0px 0px 0px;
-font-size:80px;</string>
+font-size:70px;</string>
               </property>
               <property name="text">
                <string>Welcome to ExamSphere_</string>
@@ -131,7 +158,7 @@ font-size:80px;</string>
            <widget class="QLabel" name="label_2">
             <property name="font">
              <font>
-              <family>Ubuntu 7</family>
+              <family>Ubuntu</family>
              </font>
             </property>
             <property name="styleSheet">
@@ -157,12 +184,13 @@ margin-top:0px;
       <widget class="QGroupBox" name="groupBox">
        <property name="font">
         <font>
-         <family>Ubuntu 7</family>
-         <pointsize>28</pointsize>
+         <family>Ubuntu</family>
+         <pointsize>-1</pointsize>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+        <string notr="true">color: rgb(255, 255, 255);
+font-size:40px;</string>
        </property>
        <property name="title">
         <string>Login As</string>
@@ -190,8 +218,8 @@ margin-top:0px;
            <widget class="QComboBox" name="comboBox">
             <property name="font">
              <font>
-              <family>Ubuntu 7</family>
-              <pointsize>16</pointsize>
+              <family>Ubuntu</family>
+              <pointsize>-1</pointsize>
              </font>
             </property>
             <property name="cursor">
@@ -200,11 +228,13 @@ margin-top:0px;
             <property name="styleSheet">
              <string notr="true">height: 60px;
 color: #fff;
-background-color: rgba(42,45,62,255);
+background-color:rgba(167,171,170,255);
 width:70px;
 border:1px solid;
 border-color: rgb(42, 45, 62);
-border-radius:15px;</string>
+border-radius:15px;
+font-size:25px;
+</string>
             </property>
            </widget>
           </item>
@@ -212,21 +242,23 @@ border-radius:15px;</string>
            <widget class="QPushButton" name="pushGo">
             <property name="font">
              <font>
-              <family>Ubuntu 7</family>
-              <pointsize>19</pointsize>
+              <family>Ubuntu</family>
+              <pointsize>-1</pointsize>
              </font>
             </property>
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgba(42,45,62,255);
-color:#fff;
+             <string notr="true">background-color:rgba(167,171,170,255);
+color: rgba(33,35,50,255);
 width:70px;
 height:50px;
 border:1px solid;
 border-color: rgb(42, 45, 62);
-border-radius:15px;</string>
+border-radius:15px;
+font-size:25px;
+</string>
             </property>
             <property name="text">
              <string>Go</string>

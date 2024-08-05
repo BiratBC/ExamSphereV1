@@ -7,56 +7,57 @@
     <x>0</x>
     <y>0</y>
     <width>1113</width>
-    <height>696</height>
+    <height>820</height>
    </rect>
   </property>
   <property name="font">
    <font>
-    <family>AcPlus IBM CGA</family>
+    <family>Ubuntu 7</family>
    </font>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">*{
-	background-color: rgb(0, 0, 173);
-font-family:AcPlus IBM CGA;
+   <string notr="true">QComboBox
+{
+border: 1px solid;
+border-radius: 12px; 
+border-color: rgba(33,35,50,255);
+color:#0000ad;
+	background-color: rgb(255, 255, 255);
+}
+*{
+	background-color: rgba(33,35,50,255);
+font-family:Ubuntu Medium;
 color:#fff;
 }
 QLineEdit
-{	
-color:#0000ad;
-	background-color: rgb(255, 255, 255);
-}
-QComboBox
 {
-color:#0000ad;
-	background-color: rgb(255, 255, 255);
+height:40px;
+border: 1px solid;
+border-color: rgba(33,35,50,255);
+border-radius:10px;
+color:rgba(33,35,50,255);
+background-color: rgb(255, 255, 255);
 }
 QPushButton
 {
-	
-	background-color: rgb(167, 171, 170);
-	color:#0000ad;
+background-color: #a7abaa;
+color: rgba(0,0,173,255);
+border-radius: 12px; 
+border: 1px solid;
+border-color: rgba(33,35,50,255);
+height:40px;
+width:100px;
 }
-</string>
+QGroupBox
+{
+	width:500px;
+}</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
-   <item row="2" column="0">
-    <spacer name="horizontalSpacer_12">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="1" column="1">
+   <item row="1" column="0">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -72,12 +73,57 @@ QPushButton
      </property>
     </spacer>
    </item>
-   <item row="2" column="1">
+   <item row="2" column="0">
     <widget class="QGroupBox" name="groupBox">
+     <property name="styleSheet">
+      <string notr="true">*
+{
+font-family:Ubuntu;
+font-size:19px;
+}
+QGroupBox
+{
+padding-top:30px;
+	margin-left:120px;
+margin-right:120px;
+}</string>
+     </property>
      <property name="title">
       <string>Sign Up</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <spacer name="horizontalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Preferred</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="2">
+       <spacer name="horizontalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Preferred</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
       <item row="0" column="1">
        <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>
@@ -408,7 +454,12 @@ QPushButton
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="comboBox"/>
+           <widget class="QComboBox" name="comboBox">
+            <property name="styleSheet">
+             <string notr="true">height:50px;
+</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -536,7 +587,10 @@ QPushButton
         <item>
          <widget class="QPushButton" name="pushButton_2">
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(167, 171, 170);</string>
+           <string notr="true">background-color: rgb(167, 171, 170);
+color: rgba(33,35,50,255);
+margin-left:100px;
+margin-right:100px;</string>
           </property>
           <property name="text">
            <string>Register</string>
@@ -570,6 +624,9 @@ QPushButton
           </item>
           <item>
            <widget class="QPushButton" name="pushButton">
+            <property name="styleSheet">
+             <string notr="true">color: rgba(33,35,50,255);</string>
+            </property>
             <property name="text">
              <string>Login</string>
             </property>
@@ -579,39 +636,13 @@ QPushButton
         </item>
        </layout>
       </item>
-      <item row="0" column="2">
-       <spacer name="horizontalSpacer_4">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="0" column="0">
-       <spacer name="horizontalSpacer_5">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
      </layout>
     </widget>
    </item>
-   <item row="0" column="1">
+   <item row="0" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout_9">
      <item>
-      <widget class="QLabel" name="label_11">
+      <widget class="QLabel" name="logo2">
        <property name="text">
         <string>TextLabel</string>
        </property>
@@ -627,7 +658,7 @@ QPushButton
        </property>
        <property name="font">
         <font>
-         <family>AcPlus IBM CGA</family>
+         <family>Ubuntu 7</family>
          <pointsize>35</pointsize>
         </font>
        </property>
@@ -640,19 +671,6 @@ QPushButton
       </widget>
      </item>
     </layout>
-   </item>
-   <item row="2" column="2">
-    <spacer name="horizontalSpacer_13">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
    </item>
   </layout>
  </widget>

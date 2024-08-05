@@ -14,26 +14,42 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">*{
-	background-color: rgb(0, 0, 173);
-font-family:AcPlus IBM CGA;
+   <string notr="true">QComboBox
+{
+border: 1px solid;
+border-radius: 12px; 
+border-color: rgba(33,35,50,255);
+color:#0000ad;
+	background-color: rgb(255, 255, 255);
+}
+*{
+	background-color: rgba(33,35,50,255);
+font-family:Ubuntu;
 color:#fff;
+font-size:20px;
 }
 QLineEdit
-{	
-color:#0000ad;
-	background-color: rgb(255, 255, 255);
-}
-QComboBox
 {
-color:#0000ad;
-	background-color: rgb(255, 255, 255);
+height:40px;
+border: 1px solid;
+border-color: rgba(33,35,50,255);
+border-radius:10px;
+color:rgba(33,35,50,255);
+background-color: rgb(255, 255, 255);
 }
 QPushButton
 {
-	
-	background-color: rgb(167, 171, 170);
-	color:#0000ad;
+background-color: #a7abaa;
+color: rgba(0,0,173,255);
+border-radius: 12px; 
+border: 1px solid;
+border-color: rgba(33,35,50,255);
+height:40px;
+width:100px;
+}
+QGroupBox
+{
+	width:500px;
 }
 </string>
   </property>
@@ -41,16 +57,19 @@ QPushButton
    <item row="0" column="0">
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
-      <string>GroupBox</string>
+      <string/>
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
       <item row="2" column="0">
        <widget class="QComboBox" name="subject">
         <property name="font">
          <font>
-          <family>AcPlus IBM CGA</family>
-          <pointsize>16</pointsize>
+          <family>Ubuntu</family>
+          <pointsize>-1</pointsize>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">height:50px;</string>
         </property>
        </widget>
       </item>
@@ -64,15 +83,18 @@ QPushButton
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_2">
+         <widget class="QLabel" name="examType">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="styleSheet">
+           <string notr="true">font-size:50px;</string>
+          </property>
           <property name="text">
-           <string>TextLabel</string>
+           <string>Examination Class 8</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -85,12 +107,15 @@ QPushButton
        <widget class="QLabel" name="timerLabel">
         <property name="font">
          <font>
-          <family>AcPlus IBM CGA</family>
-          <pointsize>14</pointsize>
+          <family>Ubuntu</family>
+          <pointsize>-1</pointsize>
          </font>
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
       </item>
@@ -105,12 +130,28 @@ QPushButton
            <x>0</x>
            <y>0</y>
            <width>1186</width>
-           <height>559</height>
+           <height>455</height>
           </rect>
          </property>
          <layout class="QGridLayout" name="gridLayout">
           <item row="2" column="0">
            <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Preferred</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
             <item>
              <widget class="QPushButton" name="prevButton">
               <property name="text">
@@ -119,11 +160,43 @@ QPushButton
              </widget>
             </item>
             <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Preferred</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
              <widget class="QPushButton" name="nextButton">
               <property name="text">
                <string>Next</string>
               </property>
              </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Preferred</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
             </item>
            </layout>
           </item>
@@ -202,6 +275,9 @@ QPushButton
           </item>
           <item row="3" column="0">
            <widget class="QPushButton" name="homeButton">
+            <property name="styleSheet">
+             <string notr="true">margin:0px 300px 0px 300px;</string>
+            </property>
             <property name="text">
              <string>Return Home</string>
             </property>
@@ -215,9 +291,12 @@ QPushButton
        <widget class="QPushButton" name="start">
         <property name="font">
          <font>
-          <family>AcPlus IBM CGA</family>
-          <pointsize>18</pointsize>
+          <family>Ubuntu</family>
+          <pointsize>-1</pointsize>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">height:50px;</string>
         </property>
         <property name="text">
          <string>Go</string>
@@ -228,12 +307,14 @@ QPushButton
        <widget class="QLabel" name="label">
         <property name="font">
          <font>
-          <family>AcPlus IBM CGA</family>
-          <pointsize>14</pointsize>
+          <family>Ubuntu</family>
+          <pointsize>-1</pointsize>
          </font>
         </property>
         <property name="text">
-         <string>*Carefully choose the subject.</string>
+         <string>*Read the instructions below carefully:
+1.Carefully choose the subject. You can choose subject only once.
+2.After you choose subject and click 'Go' Your timer will be started.</string>
         </property>
        </widget>
       </item>

@@ -135,7 +135,7 @@ void CheckResult::on_checkResult_clicked()
         {
             QSqlDatabase dab = QSqlDatabase::database();
             QSqlQuery Query_Get_Data(dab);
-            Query_Get_Data.prepare("SELECT * from results WHERE grade = '8' AND subject = 'Maths'");
+            Query_Get_Data.prepare("SELECT * from results WHERE grade = '9' AND subject = 'Maths'");
             if(Query_Get_Data.exec())
             {
                 int RowNum = 0;
@@ -157,7 +157,7 @@ void CheckResult::on_checkResult_clicked()
         {
             QSqlDatabase dab = QSqlDatabase::database();
             QSqlQuery Query_Get_Data(dab);
-            Query_Get_Data.prepare("SELECT * from results WHERE grade = '8' AND subject = 'Computer'");
+            Query_Get_Data.prepare("SELECT * from results WHERE grade = '9' AND subject = 'Computer'");
             if(Query_Get_Data.exec())
             {
                 int RowNum = 0;
@@ -179,7 +179,7 @@ void CheckResult::on_checkResult_clicked()
         {
             QSqlDatabase dab = QSqlDatabase::database();
             QSqlQuery Query_Get_Data(dab);
-            Query_Get_Data.prepare("SELECT * from results WHERE grade = '8' AND subject = 'Science'");
+            Query_Get_Data.prepare("SELECT * from results WHERE grade = '9' AND subject = 'Science'");
             if(Query_Get_Data.exec())
             {
                 int RowNum = 0;
@@ -204,7 +204,7 @@ void CheckResult::on_checkResult_clicked()
             {
                 QSqlDatabase dab = QSqlDatabase::database();
                 QSqlQuery Query_Get_Data(dab);
-                Query_Get_Data.prepare("SELECT * from results WHERE grade = '8' AND subject = 'Maths'");
+                Query_Get_Data.prepare("SELECT * from results WHERE grade = '10' AND subject = 'Maths'");
                 if(Query_Get_Data.exec())
                 {
                     int RowNum = 0;
@@ -226,7 +226,7 @@ void CheckResult::on_checkResult_clicked()
             {
                 QSqlDatabase dab = QSqlDatabase::database();
                 QSqlQuery Query_Get_Data(dab);
-                Query_Get_Data.prepare("SELECT * from results WHERE grade = '8' AND subject = 'Computer'");
+                Query_Get_Data.prepare("SELECT * from results WHERE grade = '10' AND subject = 'Computer'");
                 if(Query_Get_Data.exec())
                 {
                     int RowNum = 0;
@@ -248,7 +248,7 @@ void CheckResult::on_checkResult_clicked()
             {
                 QSqlDatabase dab = QSqlDatabase::database();
                 QSqlQuery Query_Get_Data(dab);
-                Query_Get_Data.prepare("SELECT * from results WHERE grade = '8' AND subject = 'Science'");
+                Query_Get_Data.prepare("SELECT * from results WHERE grade = '10' AND subject = 'Science'");
                 if(Query_Get_Data.exec())
                 {
                     int RowNum = 0;

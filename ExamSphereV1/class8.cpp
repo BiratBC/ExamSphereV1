@@ -74,6 +74,7 @@ class8::class8(const QString &id, const QString &fname, const QString &lname, co
     timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &class8::updateTimer);
 
+
 }
 
 class8::~class8()
