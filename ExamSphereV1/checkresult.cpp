@@ -6,19 +6,20 @@
 #include <QDebug>
 #include <QSqlError>
 
-CheckResult::CheckResult(const QString &marks, QWidget* parent)
+CheckResult::CheckResult( const QString &marks,const QString &subject, QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::CheckResult)
     , studentMarks(marks)
+    , sub(subject)
 {
     ui->setupUi(this);
     this->setWindowTitle("Check Result");
     ui->grade->addItem("8");
     ui->grade->addItem("9");
     ui->grade->addItem("10");
-    ui->subject->addItem("Maths");
-    ui->subject->addItem("Computer");
-    ui->subject->addItem("Science");
+    ui->subject->addItem(sub);
+    //ui->subject->addItem("Computer");
+    //ui->subject->addItem("Science");
 
     ui->tableWidget->setColumnWidth(0, 200);
     ui->tableWidget->setColumnWidth(1, 200);
@@ -26,6 +27,8 @@ CheckResult::CheckResult(const QString &marks, QWidget* parent)
     ui->tableWidget->setColumnWidth(3, 200);
     ui->tableWidget->setColumnWidth(4, 200);
     ui->tableWidget->setColumnWidth(5, 200);
+
+
     QMessageBox messageIntro;
     messageIntro.resize(800,800);
     messageIntro.setStyleSheet(
@@ -77,8 +80,8 @@ void CheckResult::on_checkResult_clicked()
                     ui->tableWidget->setItem(RowNum,1,new QTableWidgetItem(QString(Query_Get_Data.value("id").toString())));
                     ui->tableWidget->setItem(RowNum,2,new QTableWidgetItem(QString(Query_Get_Data.value("grade").toString())));
                     ui->tableWidget->setItem(RowNum,3,new QTableWidgetItem(QString(Query_Get_Data.value("subject").toString())));
-                    ui->tableWidget->setItem(RowNum,3,new QTableWidgetItem(QString(Query_Get_Data.value("total_marks").toString())));
-                    ui->tableWidget->setItem(RowNum,3,new QTableWidgetItem(QString(Query_Get_Data.value("obtained_marks").toString())));
+                    ui->tableWidget->setItem(RowNum,4,new QTableWidgetItem(QString(Query_Get_Data.value("total_marks").toString())));
+                    ui->tableWidget->setItem(RowNum,5,new QTableWidgetItem(QString(Query_Get_Data.value("obtained_marks").toString())));
                     RowNum = RowNum +1;
                     // qDebug() <<Query_Get_Data.value("id").toString()
                 }
@@ -99,8 +102,8 @@ void CheckResult::on_checkResult_clicked()
                     ui->tableWidget->setItem(RowNum,1,new QTableWidgetItem(QString(Query_Get_Data.value("id").toString())));
                     ui->tableWidget->setItem(RowNum,2,new QTableWidgetItem(QString(Query_Get_Data.value("grade").toString())));
                     ui->tableWidget->setItem(RowNum,3,new QTableWidgetItem(QString(Query_Get_Data.value("subject").toString())));
-                    ui->tableWidget->setItem(RowNum,3,new QTableWidgetItem(QString(Query_Get_Data.value("total_marks").toString())));
-                    ui->tableWidget->setItem(RowNum,3,new QTableWidgetItem(QString(Query_Get_Data.value("obtained_marks").toString())));
+                    ui->tableWidget->setItem(RowNum,4,new QTableWidgetItem(QString(Query_Get_Data.value("total_marks").toString())));
+                    ui->tableWidget->setItem(RowNum,5,new QTableWidgetItem(QString(Query_Get_Data.value("obtained_marks").toString())));
                     RowNum = RowNum +1;
                     // qDebug() <<Query_Get_Data.value("id").toString()
                 }
@@ -121,8 +124,8 @@ void CheckResult::on_checkResult_clicked()
                     ui->tableWidget->setItem(RowNum,1,new QTableWidgetItem(QString(Query_Get_Data.value("id").toString())));
                     ui->tableWidget->setItem(RowNum,2,new QTableWidgetItem(QString(Query_Get_Data.value("grade").toString())));
                     ui->tableWidget->setItem(RowNum,3,new QTableWidgetItem(QString(Query_Get_Data.value("subject").toString())));
-                    ui->tableWidget->setItem(RowNum,3,new QTableWidgetItem(QString(Query_Get_Data.value("total_marks").toString())));
-                    ui->tableWidget->setItem(RowNum,3,new QTableWidgetItem(QString(Query_Get_Data.value("obtained_marks").toString())));
+                    ui->tableWidget->setItem(RowNum,4,new QTableWidgetItem(QString(Query_Get_Data.value("total_marks").toString())));
+                    ui->tableWidget->setItem(RowNum,5,new QTableWidgetItem(QString(Query_Get_Data.value("obtained_marks").toString())));
                     RowNum = RowNum +1;
                     // qDebug() <<Query_Get_Data.value("id").toString()
                 }

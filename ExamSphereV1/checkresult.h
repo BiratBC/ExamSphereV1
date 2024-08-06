@@ -14,7 +14,7 @@ class CheckResult : public QDialog
 public:
     CheckResult(){}
     //explicit CheckResult(QWidget *parent = nullptr);
-    explicit CheckResult(const QString &marks, QWidget *parent = nullptr);
+    explicit CheckResult(const QString &marks,const QString &subject, QWidget *parent = nullptr);
     ~CheckResult();
 
 private slots:
@@ -23,6 +23,7 @@ private slots:
 private:
     Ui::CheckResult *ui;
     QString studentMarks;
+    QString sub;
 };
 
 #endif // CHECKRESULT_H

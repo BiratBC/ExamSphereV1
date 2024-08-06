@@ -52,9 +52,10 @@ void ExaminerLogin::on_pushButton_clicked()
     QString id=ui->lineID->text();
     QString password=ui->linePassword->text();
     QSqlQuery query_login(QSqlDatabase::database("Examsphere"));
-    query_login.prepare(QString("SELECT teacher_id, password FROM teacher_data WHERE teacher_id=:teacher_id AND password=:password"));
+    query_login.prepare(QString("SELECT teacher_id, password, subject_code FROM teacher_data WHERE teacher_id=:teacher_id AND password=:password"));
     query_login.bindValue(":teacher_id",id);
     query_login.bindValue(":password",password);
+    qDebug() << "Query error:" << query_login.lastError().text();
     if(!query_login.exec())
     {
         QMessageBox::warning(this,"Login","Try Again.");
@@ -63,12 +64,13 @@ void ExaminerLogin::on_pushButton_clicked()
     {
         if(query_login.next())
         {
-            QString idd=query_login.value(0).toString();
-            QString passwordd=query_login.value(1).toString();
+            QString idd=query_login.value("teacher_id").toString();
+            QString passwordd=query_login.value("password").toString();
+            QString subjectdb=query_login.value("subject_code").toString();
             if(idd==id && passwordd==password)
             {
                 close();
-                examinerWindow = new examiner();
+                examinerWindow = new examiner(subjectdb);
                 examinerWindow->showMaximized();
 
             }

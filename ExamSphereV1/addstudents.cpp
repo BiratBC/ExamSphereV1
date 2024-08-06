@@ -34,6 +34,7 @@ addStudents::addStudents(QWidget *parent)
     ui->tableWidget->setColumnWidth(2, 200);
     ui->tableWidget->setColumnWidth(3, 200);
     ui->filePathLabel->hide();
+
     QMessageBox messageIntro;
     messageIntro.resize(800,800);
     messageIntro.setStyleSheet(
@@ -117,7 +118,12 @@ void addStudents::on_pushButton_2_clicked()
 void addStudents::on_createExam_clicked()
 {
     QMessageBox msg;
-
+    int Time = ui->timer->text().toInt();
+    if(Time == NULL)
+    {
+        QMessageBox::warning(this,"Add Time","Please add timer for the exam");
+        return;
+    }
     if (filePath.isEmpty()) {
         QMessageBox::warning(this, "No File Selected", "Please select a file to upload.");
         return;
@@ -243,7 +249,7 @@ void addStudents::on_pushButton_4_clicked()
 void addStudents::on_pushButton_5_clicked()
 {
     close();
-    examinerWindow2 =  new examiner();
+    examinerWindow2 =  new examiner("default",this);
     examinerWindow2->showMaximized();
 }
 

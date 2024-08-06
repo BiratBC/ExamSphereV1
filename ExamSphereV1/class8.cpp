@@ -29,7 +29,7 @@ class8::class8(const QString &id, const QString &fname, const QString &lname, co
     ,studentGrade(grade)
     ,currentQuestionIndex(0)
     ,scoreRec(0)
-    ,timeRemaining(100)
+    ,timeRemaining(120)
 {
     ui->setupUi(this);
     this->setWindowTitle("Class 8");

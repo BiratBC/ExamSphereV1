@@ -7,9 +7,10 @@ CheckResult *resultWindow;
 
 ExaminerLogin *examinerLoginWindow;
 
-examiner::examiner(QWidget *parent)
+examiner::examiner(const QString &subject, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::examiner)
+    , sub(subject)
 {
     ui->setupUi(this);
 }
@@ -22,7 +23,7 @@ examiner::~examiner()
 void examiner::on_pushButton_clicked()
 {
     close();
-    resultWindow = new CheckResult("default",this);
+    resultWindow = new CheckResult("default",sub,this);
     resultWindow->showMaximized();
 }
 

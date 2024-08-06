@@ -275,7 +275,7 @@ height:40px;</string>
              <x>0</x>
              <y>0</y>
              <width>1198</width>
-             <height>366</height>
+             <height>287</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_2">
@@ -320,6 +320,16 @@ height:40px;</string>
          </widget>
         </item>
        </layout>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>Exam Time (in seconds)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="timer"/>
       </item>
       <item>
        <widget class="QGroupBox" name="groupBox_2">

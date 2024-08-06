@@ -14,7 +14,7 @@ class examiner : public QDialog
     Q_OBJECT
 
 public:
-    explicit examiner(QWidget *parent = nullptr);
+    explicit examiner(const QString &subject, QWidget *parent = nullptr);
     ~examiner();
 
 private slots:
@@ -27,6 +27,7 @@ private slots:
 private:
     Ui::examiner *ui;
     addStudents *addWindow;
+    QString sub;
 };
 
 #endif // EXAMINER_H
