@@ -15,8 +15,9 @@
   </property>
   <property name="styleSheet">
    <string notr="true">*{
-	background-color: rgba(33,35,50,255);
+	background-color: rgba(235,206,188,255);
 font-family:Ubuntu Medium;
+color:#f9ede4;
 }
 
 </string>
@@ -24,7 +25,7 @@ font-family:Ubuntu Medium;
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
     <string notr="true">*{
-	background-color: rgba(33,35,50,255);
+	background-color: rgba(235,206,188,255);
 font-family:Ubuntu;
 }
 QLineEdit
@@ -33,7 +34,7 @@ border: 1px solid;
 border-color: rgba(33,35,50,255);
 border-radius:10px;
 height:45px;
-color:rgba(33,35,50,255);
+color:#fbeee6;
 }
 QPushButton
 {
@@ -67,11 +68,12 @@ width:100px;
      <widget class="QGroupBox" name="groupBox">
       <property name="styleSheet">
        <string notr="true">*{
-	background-color: rgba(42,45,62,255);
+	background-color: rgba(73,41,18,255);
 font-family:Ubuntu Medium;
 }
 QGroupBox
 {
+color:#fbeee6;
 margin-top:15%;
 margin-bottom:15%;
 	border:1px solid;
@@ -148,14 +150,14 @@ border-radius:20px;
          <property name="styleSheet">
           <string notr="true">*{
 font-family:Ubuntu;
-color:#fff;
+color:#f9ede4;
 }
 QGroupBox
 {
-margin-left:250px;
-margin-right:250px;
+margin-left:300px;
+margin-right:300px;
 	border:3px solid;
-	border-color: rgba(33,35,50,255);
+	border-color:#e5cc8f;
 border-radius:20px;
 }</string>
          </property>
@@ -190,6 +192,9 @@ border-radius:20px;
                     <pointsize>18</pointsize>
                    </font>
                   </property>
+                  <property name="styleSheet">
+                   <string notr="true">color: #f9ede4;</string>
+                  </property>
                   <property name="text">
                    <string>&lt;font color = #fff&gt;ID</string>
                   </property>
@@ -220,8 +225,13 @@ border-radius:20px;
                    </font>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(255, 255, 255);
-color:rgba(33,35,50,255);</string>
+                   <string notr="true">*{background-color: rgb(255, 255, 255);
+color:rgba(33,35,50,255);
+}
+QLineEdit{
+	margin-left:82px;
+margin-right:100px;
+}</string>
                   </property>
                   <property name="placeholderText">
                    <string>ID</string>
@@ -263,6 +273,9 @@ color:rgba(33,35,50,255);</string>
                     <pointsize>18</pointsize>
                    </font>
                   </property>
+                  <property name="styleSheet">
+                   <string notr="true">color: rgb(249, 237, 228);</string>
+                  </property>
                   <property name="text">
                    <string>&lt;font color = #fff&gt;Password</string>
                   </property>
@@ -293,8 +306,12 @@ color:rgba(33,35,50,255);</string>
                    </font>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(255, 255, 255);
-color:rgba(33,35,50,255);</string>
+                   <string notr="true">*{background-color: rgb(255, 255, 255);
+color:rgba(33,35,50,255);
+}
+QLineEdit{
+margin-right:100px;
+}</string>
                   </property>
                   <property name="echoMode">
                    <enum>QLineEdit::Password</enum>
@@ -337,7 +354,7 @@ color:rgba(33,35,50,255);</string>
               </property>
               <property name="styleSheet">
                <string notr="true">background-color: #a7abaa;
-color: rgb(33, 35, 50);
+color:#fff;
 border-radius: 12px; 
 border: 1px solid;
 height:50px;
@@ -379,7 +396,7 @@ margin-right:100px;</string>
               </property>
               <property name="styleSheet">
                <string notr="true">background-color: #a7abaa;
-color: rgb(33, 35, 50);
+color:#fff;
 border-radius: 12px; 
 border: 1px solid;
 height:50px;
@@ -456,7 +473,7 @@ margin-right:100px;</string>
               </property>
               <property name="styleSheet">
                <string notr="true">background-color: #a7abaa;
-color: rgb(33, 35, 50);
+color:#fff;
 border-radius: 12px; 
 border: 1px solid;
 height:50px;

@@ -113,17 +113,14 @@ void addStudents::on_pushButton_2_clicked()
     QSqlDatabase::database().commit();
    // dab.close();
 }
-
+int returnTimer(int time)
+{
+    return time;
+}
 
 void addStudents::on_createExam_clicked()
 {
     QMessageBox msg;
-    int Time = ui->timer->text().toInt();
-    if(Time == NULL)
-    {
-        QMessageBox::warning(this,"Add Time","Please add timer for the exam");
-        return;
-    }
     if (filePath.isEmpty()) {
         QMessageBox::warning(this, "No File Selected", "Please select a file to upload.");
         return;

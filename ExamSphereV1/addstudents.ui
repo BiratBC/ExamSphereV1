@@ -107,7 +107,7 @@ QGroupBox
        <item>
         <widget class="QComboBox" name="comboBox">
          <property name="styleSheet">
-          <string notr="true">color: rgba(33,35,50,255);
+          <string notr="true">color: #000;
 height:40px;</string>
          </property>
         </widget>
@@ -159,7 +159,8 @@ height:40px;</string>
        <item>
         <widget class="QLineEdit" name="lineEdit">
          <property name="styleSheet">
-          <string notr="true">height:40px;</string>
+          <string notr="true">height:40px;
+color: rgb(0, 0, 0);</string>
          </property>
         </widget>
        </item>
@@ -275,7 +276,7 @@ height:40px;</string>
              <x>0</x>
              <y>0</y>
              <width>1198</width>
-             <height>287</height>
+             <height>366</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_2">
@@ -320,16 +321,6 @@ height:40px;</string>
          </widget>
         </item>
        </layout>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_5">
-        <property name="text">
-         <string>Exam Time (in seconds)</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="timer"/>
       </item>
       <item>
        <widget class="QGroupBox" name="groupBox_2">

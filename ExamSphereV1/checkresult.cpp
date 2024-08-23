@@ -5,6 +5,8 @@
 #include <QSqlQuery>
 #include <QDebug>
 #include <QSqlError>
+#include "examiner.h"
+examiner *examinerWindow;
 
 CheckResult::CheckResult( const QString &marks,const QString &subject, QWidget* parent)
     : QDialog(parent)
@@ -271,5 +273,13 @@ void CheckResult::on_checkResult_clicked()
             }
         }
 
+}
+
+
+void CheckResult::on_pushButton_clicked()
+{
+    close();
+    examinerWindow = new examiner("default",this);
+    examinerWindow->showMaximized();
 }
 

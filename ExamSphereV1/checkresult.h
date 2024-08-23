@@ -20,6 +20,8 @@ public:
 private slots:
     void on_checkResult_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::CheckResult *ui;
     QString studentMarks;

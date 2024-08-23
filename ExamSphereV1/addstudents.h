@@ -14,6 +14,7 @@ class addStudents : public QDialog
     Q_OBJECT
 
 public:
+    int timeReturn(int Time);
     explicit addStudents(QWidget *parent = nullptr);
     ~addStudents();
 

@@ -83,7 +83,7 @@ QGroupBox
             <property name="font">
              <font>
               <family>Ubuntu</family>
-              <pointsize>50</pointsize>
+              <pointsize>55</pointsize>
              </font>
             </property>
             <property name="text">

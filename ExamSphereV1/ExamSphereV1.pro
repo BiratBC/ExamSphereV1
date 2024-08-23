@@ -22,7 +22,6 @@ SOURCES += \
     examinerlogin.cpp \
     main.cpp \
     pastresult.cpp \
-    score.cpp \
     student.cpp \
     studentlogin.cpp \
     studentregistration.cpp \
@@ -39,7 +38,6 @@ HEADERS += \
     examiner.h \
     examinerlogin.h \
     pastresult.h \
-    score.h \
     student.h \
     studentlogin.h \
     studentregistration.h \
@@ -56,7 +54,6 @@ FORMS += \
     examiner.ui \
     examinerlogin.ui \
     pastresult.ui \
-    score.ui \
     student.ui \
     studentlogin.ui \
     studentregistration.ui \

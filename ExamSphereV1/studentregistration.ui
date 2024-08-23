@@ -28,7 +28,7 @@ color:#0000ad;
 	background-color: rgb(255, 255, 255);
 }
 *{
-	background-color: rgba(33,35,50,255);
+	background-color: rgba(235,206,188,255);
 font-family:Ubuntu Medium;
 color:#fff;
 }
@@ -75,21 +75,35 @@ QGroupBox
    </item>
    <item row="2" column="0">
     <widget class="QGroupBox" name="groupBox">
+     <property name="font">
+      <font>
+       <family>Ubuntu</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
      <property name="styleSheet">
       <string notr="true">*
 {
+	background-color: rgb(73, 41, 18);
 font-family:Ubuntu;
 font-size:19px;
 }
 QGroupBox
 {
+border:1px solid;
+border-radius:20px;
 padding-top:30px;
 	margin-left:120px;
 margin-right:120px;
+}
+QLineEdit{
+margin-right:140px;
+background-color:#fff;
+color:#000;
 }</string>
      </property>
      <property name="title">
-      <string>Sign Up</string>
+      <string/>
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
@@ -138,7 +152,12 @@ margin-right:120px;
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_fN"/>
+             <widget class="QLineEdit" name="lineEdit_fN">
+              <property name="styleSheet">
+               <string notr="true">margin:0px;
+</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -165,7 +184,11 @@ margin-right:120px;
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_mN"/>
+             <widget class="QLineEdit" name="lineEdit_mN">
+              <property name="styleSheet">
+               <string notr="true">margin:0px;</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -192,7 +215,11 @@ margin-right:120px;
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_lN"/>
+             <widget class="QLineEdit" name="lineEdit_lN">
+              <property name="styleSheet">
+               <string notr="true">margin:0px;</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -456,7 +483,9 @@ margin-right:120px;
           <item>
            <widget class="QComboBox" name="comboBox">
             <property name="styleSheet">
-             <string notr="true">height:50px;
+             <string notr="true">height:40px;
+color:#000;
+background-color: rgb(255, 255, 255);
 </string>
             </property>
            </widget>
@@ -489,7 +518,12 @@ margin-right:120px;
            </widget>
           </item>
           <item>
-           <widget class="QDateEdit" name="dateEdit_dob"/>
+           <widget class="QDateEdit" name="dateEdit_dob">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -625,7 +659,8 @@ margin-right:100px;</string>
           <item>
            <widget class="QPushButton" name="pushButton">
             <property name="styleSheet">
-             <string notr="true">color: rgba(33,35,50,255);</string>
+             <string notr="true">color: rgba(33,35,50,255);
+background-color: rgb(167, 171, 170);</string>
             </property>
             <property name="text">
              <string>Login</string>
@@ -643,6 +678,9 @@ margin-right:100px;</string>
     <layout class="QHBoxLayout" name="horizontalLayout_9">
      <item>
       <widget class="QLabel" name="logo2">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <property name="text">
         <string>TextLabel</string>
        </property>
@@ -661,6 +699,13 @@ margin-right:100px;</string>
          <family>Ubuntu 7</family>
          <pointsize>35</pointsize>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(73, 41, 18);
+border:1px solid;
+border-radius:20px;
+margin-left:100px;
+margin-right:200px;</string>
        </property>
        <property name="text">
         <string>Student Registration</string>

@@ -167,17 +167,10 @@ void studentRegistration::on_pushButton_2_clicked()
         else
         {
             QSqlQuery qry(dab);
-            QSqlQuery qry2(dab);
+            //QSqlQuery qry2(dab);
             QSqlQuery qry3(dab);
-            qry2.exec("CALL generate_unique_reg_number(@reg_number)");
-
-            qry2.exec("SELECT @reg_number");
-            if (qry2.next()) {
-                QString reg_number = qry2.value(0).toString();
-
-                // Prepare and execute the insert query with the generated registration number
-                qry.prepare("INSERT INTO students_data(id, password, first_name, middle_name, last_name, user_email, date_of_birth, phone_number, batch, grade, sex, registration_num)"
-                            "VALUES(:id, :password, :first_name, :middle_name, :last_name, :user_email, :date_of_birth, :phone_number, :batch, :grade, :sex, :reg_number)");
+                qry.prepare("INSERT INTO students_data(id, password, first_name, middle_name, last_name, user_email, date_of_birth, phone_number, batch, grade, sex)"
+                            "VALUES(:id, :password, :first_name, :middle_name, :last_name, :user_email, :date_of_birth, :phone_number, :batch, :grade, :sex)");
                 qry.bindValue(":id", id);
                 qry.bindValue(":password", password);
                 qry.bindValue(":first_name", fN);
@@ -189,7 +182,7 @@ void studentRegistration::on_pushButton_2_clicked()
                 qry.bindValue(":batch", batch);
                 qry.bindValue(":grade", grade);
                 qry.bindValue(":sex", sex);
-                qry.bindValue(":reg_number", reg_number);
+                //qry.bindValue(":reg_number", reg_number);
 
 
                 qry3.prepare("INSERT INTO exam_data(id,first_name,last_name,grade)"
@@ -212,11 +205,6 @@ void studentRegistration::on_pushButton_2_clicked()
                             qDebug() << qry.lastError().text() << Qt::endl;
                         }
 
-            }
-            else
-            {
-                QMessageBox::warning(this, "Error", "Failed to generate registration number.");
-            }
         }
     }
     else

@@ -23,7 +23,7 @@ color:#0000ad;
 	background-color: rgb(255, 255, 255);
 }
 *{
-	background-color: rgba(33,35,50,255);
+	background-color: rgba(235,206,188,255);
 font-family:Ubuntu;
 color:#fff;
 font-size:16px;
@@ -82,7 +82,8 @@ margin:0px;
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">font-size:60px;</string>
+        <string notr="true">font-size:60px;
+color:rgb(73, 41, 18);</string>
        </property>
        <property name="text">
         <string>Teacher Registration</string>
@@ -113,7 +114,25 @@ margin:0px;
    <item row="2" column="0">
     <widget class="QGroupBox" name="groupBox">
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">*
+{
+	background-color: rgb(73, 41, 18);
+font-family:Ubuntu;
+font-size:19px;
+}
+QGroupBox
+{
+border:1px solid;
+border-radius:20px;
+padding-top:30px;
+	margin-left:120px;
+margin-right:120px;
+}
+QLineEdit{
+margin-right:140px;
+background-color:#fff;
+color:#000;
+}</string>
      </property>
      <property name="title">
       <string>Sign Up</string>
@@ -635,7 +654,8 @@ margin:0px;
           <property name="styleSheet">
            <string notr="true">margin:0px 100px 0px 100px;
 color: rgb(0, 0, 0);
-font-size:20px;</string>
+font-size:20px;
+background-color: rgb(167, 171, 170);</string>
           </property>
           <property name="text">
            <string>Register</string>
@@ -671,7 +691,8 @@ font-size:20px;</string>
            <widget class="QPushButton" name="login">
             <property name="styleSheet">
              <string notr="true">color: rgb(0, 0, 0);
-font-size:20px;</string>
+font-size:20px;
+background-color: rgb(167, 171, 170);</string>
             </property>
             <property name="text">
              <string>Login</string>
