@@ -4,8 +4,8 @@
 #include <QMessageBox>
 #include <QDebug>
 #include <QtSql/QSqlDatabase>
-#include <QtSql/QSqlError>
-#include <QtSql/QSqlQuery>
+//#include <QtSql/QSqlError>
+//#include <QtSql/QSqlQuery>
 
 Welcome *welcomeWindow;
 ExamSphere::ExamSphere(QWidget *parent)

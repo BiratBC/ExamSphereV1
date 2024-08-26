@@ -23,7 +23,7 @@ private slots:
 
 private:
     Ui::Welcome *ui;
-    ExamSphere *examWindow;
+    ExamSphere *studentLoginWindow;
     ExaminerLogin *examinerWindow;
     QComboBox *combobox;
     Student *studentWindow;

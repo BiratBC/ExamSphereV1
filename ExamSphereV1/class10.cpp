@@ -58,6 +58,23 @@ class10::~class10()
 {
     delete ui;
 }
+void class10::saveCurrentAnswer()
+{
+    QString selectedAnswer;
+    if (ui->option1->isChecked()) {
+        selectedAnswer = ui->option1->text();
+    } else if (ui->option2->isChecked()) {
+        selectedAnswer = ui->option2->text();
+    } else if (ui->option3->isChecked()) {
+        selectedAnswer = ui->option3->text();
+    } else if (ui->option4->isChecked()) {
+        selectedAnswer = ui->option4->text();
+    } else {
+        selectedAnswer = "";
+    }
+
+    selectedAnswers[currentQuestionIndex] = selectedAnswer;
+}
 void class10::on_start_clicked()
 {
     ui->nextButton->show();
@@ -141,15 +158,22 @@ void class10::on_start_clicked()
 
         // Shuffle and select the first 4 questions
         questions = getRandomQuestions(questions, 4);
-
-        loadQuestion();
-        timer->start(1000);
     }
+    // Initialize selectedAnswers with an empty string for each question
+    selectedAnswers.fill("", questions.size());
+
+    loadQuestion();
+    timer->start(1000);
 
 }
 
 void class10::on_prevButton_clicked()
 {
+    saveCurrentAnswer();
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        loadQuestion();
+    }
 
 }
 QVector<QVariantMap> class10::getRandomQuestions(QVector<QVariantMap> questions, int numberOfQuestions) {
@@ -168,18 +192,32 @@ void class10::loadQuestion()
         ui->option3->setText(question["option3"].toString());
         ui->option4->setText(question["option4"].toString());
 
-        ui->option1->setAutoExclusive(false);
-        ui->option2->setAutoExclusive(false);
-        ui->option3->setAutoExclusive(false);
-        ui->option4->setAutoExclusive(false);
-        ui->option1->setChecked(false);
-        ui->option2->setChecked(false);
-        ui->option3->setChecked(false);
-        ui->option4->setChecked(false);
-        ui->option1->setAutoExclusive(true);
-        ui->option2->setAutoExclusive(true);
-        ui->option3->setAutoExclusive(true);
-        ui->option4->setAutoExclusive(true);
+        // Load previously selected answer
+        QString selectedAnswer = selectedAnswers[currentQuestionIndex];
+        if (selectedAnswer == ui->option1->text()) {
+            ui->option1->setChecked(true);
+        } else if (selectedAnswer == ui->option2->text()) {
+            ui->option2->setChecked(true);
+        } else if (selectedAnswer == ui->option3->text()) {
+            ui->option3->setChecked(true);
+        } else if (selectedAnswer == ui->option4->text()) {
+            ui->option4->setChecked(true);
+        } else {
+            ui->option1->setAutoExclusive(false);
+            ui->option2->setAutoExclusive(false);
+            ui->option3->setAutoExclusive(false);
+            ui->option4->setAutoExclusive(false);
+
+            ui->option1->setChecked(false);
+            ui->option2->setChecked(false);
+            ui->option3->setChecked(false);
+            ui->option4->setChecked(false);
+
+            ui->option1->setAutoExclusive(true);
+            ui->option2->setAutoExclusive(true);
+            ui->option3->setAutoExclusive(true);
+            ui->option4->setAutoExclusive(true);
+        }
     }
     else
     {
@@ -189,13 +227,11 @@ void class10::loadQuestion()
 void class10::checkAnswer()
 {
 
-    if (currentQuestionIndex < questions.size()) {
-        QVariantMap question = questions[currentQuestionIndex];
+    scoreRec = 0; // Reset score
+    for (int i = 0; i < selectedAnswers.size(); ++i) {
+        QVariantMap question = questions[i];
         QString correctAnswer = question["correct"].toString();
-        if ((ui->option1->isChecked() && ui->option1->text() == correctAnswer) ||
-            (ui->option2->isChecked() && ui->option2->text() == correctAnswer) ||
-            (ui->option3->isChecked() && ui->option3->text() == correctAnswer) ||
-            (ui->option4->isChecked() && ui->option4->text() == correctAnswer)) {
+        if (selectedAnswers[i] == correctAnswer) {
             scoreRec++;
         }
     }
@@ -203,12 +239,36 @@ void class10::checkAnswer()
 
 void class10::on_nextButton_clicked()
 {
+    saveCurrentAnswer();
+    QString sub = ui->subject->currentText();
+    QString subjectCode;
+    if (sub == "Maths") {
+        subjectCode = "1001";
+    } else if (sub == "Computer") {
+        subjectCode = "1002";
+    } else if (sub == "Science") {
+        subjectCode = "1003";
+    }
+    QSqlQuery qry1(db);
+    if (!qry1.exec(QString("SELECT exam_type, total_marks FROM questions WHERE subject_code = '%1' AND class_code = '8'").arg(subjectCode))) {
+        qDebug() << "Error fetching exam details:" << qry1.lastError();
+        return;
+    }
+
+    QString exam_Type;
+    QString fullMarks;
+    if (qry1.next()) {
+        exam_Type = qry1.value("exam_type").toString();
+        fullMarks = qry1.value("total_marks").toString();
+    }
+
     checkAnswer();
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.size()) {
         loadQuestion();
     } else {
         timer->stop();
+        checkAnswer();
         ui->timerLabel->setText(QString("Time Remaining: 00:00"));
         ui->questionLabel->setText(QString("Congratulations!!! You got %1").arg(scoreRec));
         ui->option1->hide();
@@ -218,6 +278,26 @@ void class10::on_nextButton_clicked()
         ui->nextButton->hide();
         ui->prevButton->hide();
         ui->homeButton->show();
+
+        QSqlQuery qry(db);
+        qry.prepare("INSERT INTO results(exam_type, id, grade, subject, total_marks, obtained_marks)"
+                    "VALUES(:exam_type, :id, :grade, :subject, :total_marks, :obtained_marks)");
+
+        qry.bindValue(":exam_type", exam_Type);
+        qry.bindValue(":id", studentId);
+        qry.bindValue(":grade", studentGrade);
+        qry.bindValue(":subject", sub);
+        qry.bindValue(":total_marks", fullMarks);
+        qry.bindValue(":obtained_marks", QString::number(scoreRec));
+
+        qDebug() << "Executing query:" << qry.executedQuery();
+        qDebug() << "Bound values:" << exam_Type << studentId << studentGrade << sub << fullMarks << scoreRec;
+
+        if (!qry.exec()) {
+            QMessageBox::warning(this, "Not Recorded", "Failed to record data of this examination");
+            qDebug() << "Error: " << qry.lastError();
+        }
+
     }
 }
 void class10::updateTimer() {

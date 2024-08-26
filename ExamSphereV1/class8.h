@@ -60,8 +60,10 @@ private:
 
     void loadQuestion();
     void checkAnswer();
+    void saveCurrentAnswer();
     QVector<QVariantMap> questions;
     QVector<QVariantMap> getRandomQuestions(QVector<QVariantMap> questions, int numberOfQuestions = 4);
+    QVector<QString> selectedAnswers;
 };
 
 #endif // CLASS8_H

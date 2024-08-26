@@ -37,9 +37,9 @@ void Welcome::on_pushGo_clicked()
     if(x == 0)
     {
         close();
-        examWindow = new ExamSphere();
-        examWindow->showMaximized();
-        studentWindow = new Student("defaultID","defaultFname","defaultLname","defaultEmail",QDate(2024,07,21),"defaultBatch","defaultGrade",this);
+        studentLoginWindow = new ExamSphere();
+        studentLoginWindow->showMaximized();
+        //studentWindow = new Student("defaultID","defaultFname","defaultLname","defaultEmail",QDate(2024,07,21),"defaultBatch","defaultGrade",this);
         //studentWindow->showMaximized();
     }
     else
